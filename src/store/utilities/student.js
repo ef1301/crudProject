@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+
+import React, {Component} from 'react';
 
 
-class singleStudent extends React.Component {
+class singleStudent extends React.Component
+{
     constructor(props) {
         super(props);
-        this.state =
+        this.state = 
         {
             firstName: '',
             lastName: '',
@@ -46,9 +48,7 @@ class singleStudent extends React.Component {
             <div className="studentView">
                 <h1>Show Student</h1>
 
-                <h2>{this.state.firstName} {this.state.lastName}</h2>
-                <button onclick="myFunction()">Add to Campus</button>
-
+                    <h2>{this.state.firstName} {this.state.lastName}</h2>
                 {this.renderDisplay()}
             </div>
         );
