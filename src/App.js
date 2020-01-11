@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
+import allCampuses from './store/utilities/allCampuses';
 
 class App extends Component{
     constructor() {
@@ -14,9 +17,10 @@ class App extends Component{
 		email:'',
 		imageURL: '',
 		gpa: 0
-	    }
+	    },
 	    singleCampus: {
 		name: '',
+		numStudents: 0,
 		imageURL: '',
 		address: '',
 		description: ''
@@ -25,10 +29,20 @@ class App extends Component{
     }
     
     render() {
+	const allCampusesComponent = () => (<allCampus/>);
 	return (
 		<div className="App">
-	  
+		
+		<div id="navbar">
+		
+		</div>
+	    
+		<Router>
+		<Route exact path="/" render={allCampusesComponent}/>
+		<Route exact path="/allCampuses" render={allCampusesComponent}/>
+		</Router>
 	    </div>
+		
 	);
     }
 }
