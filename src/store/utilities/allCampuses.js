@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class allCampuses extends Component {
     constructor(props){
@@ -14,7 +15,8 @@ class allCampuses extends Component {
     }
     
     display() {
-	if(this.props.allCampuses.length == 0){
+	console.log(this.props.allCampuses);
+	if(this.props.allCampuses.length === 0){
 	    return (
 		    <div className="container">
 		    <h1>All Campuses</h1>
@@ -28,7 +30,7 @@ class allCampuses extends Component {
 		return (
 			<div key={element} className="container">
 			<h1>All Campuses</h1>
-			<img src={element.imageURL}<br/>
+			<img src={element.imageURL}/><br/>
 			Name: {element.name}<br/>
 			{element.numStudents} students<br/>
 			<button onclick={this.edit}>Edit</button>
@@ -42,7 +44,10 @@ class allCampuses extends Component {
 
     render(){
 	return (
-	    {this.display()}
+		<div>
+		<Link to="/">Home</Link>
+		{this.display()}
+	    </div>
 	);
     }
 }
