@@ -7,7 +7,20 @@ class App extends Component{
 	super();
 	this.state = {
 	    allStudents: [],
-	    
+	    allCampuses: [],
+	    singleStudent: {
+		firstName: '',
+		lastName: '',
+		email:'',
+		imageURL: '',
+		gpa: 0
+	    }
+	    singleCampus: {
+		name: '',
+		imageURL: '',
+		address: '',
+		description: ''
+	    }
 	}
     }
     
@@ -22,7 +35,6 @@ class App extends Component{
 
 function mapState(state) {
     return {
-	currentCount: state.counterReducer
     };
 }
 
@@ -30,7 +42,6 @@ function mapState(state) {
 //in other words, you can now call this.props.incrementCoutner;
 function mapDispatch(dispatch) {
     return {
-	incrementCounter: () => dispatch(increment())
     }
 }
 
