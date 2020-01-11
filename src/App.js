@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import {connect} from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+    constructor() {
+	super();
+	this.state = {
+	    allStudents: [],
+	    
+	}
+    }
+    
+    render() {
+	return (
+		<div className="App">
+	  
+	    </div>
+	);
+    }
+}
+
+function mapState(state) {
+    return {
+	currentCount: state.counterReducer
+    };
+}
+
+//anything in this function will be accessible on the component's props object;
+//in other words, you can now call this.props.incrementCoutner;
+function mapDispatch(dispatch) {
+    return {
+	incrementCounter: () => dispatch(increment())
+    }
 }
 
 export default App;
