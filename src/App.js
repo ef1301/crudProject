@@ -17,6 +17,7 @@ class App extends Component{
 	    }
 	    singleCampus: {
 		name: '',
+		numStudents: 0,
 		imageURL: '',
 		address: '',
 		description: ''
