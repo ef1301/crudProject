@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addStudent, addStudentThunk, getStudentsThunk } from '../store/utilities/reducers/studentReducer'
 
-
+//Blank slate for adding a student
 class AddStudent extends Component {
     constructor() {
         super()
@@ -23,6 +23,7 @@ class AddStudent extends Component {
 
     async handleSubmit(event) 
     {
+        //We prevent from submitting first
         event.preventDefault();
         const studentFirstName = event.target.firstName.value;
         const studentLastName = event.target.lastName.value;
@@ -41,9 +42,12 @@ class AddStudent extends Component {
             gpa: studentGPA,
             campusId: this.state.selectedCampus
         }
-        if (this.state.selectedCampus !== null) {
+        //If null then nothing is selected
+        if (this.state.selectedCampus !== null) 
+        {
             this.props.writeStudent(newStudentWithCampus)
-        } else {
+        } 
+        else {
             this.props.writeStudent(newStudentWithoutCampus)
         }
         this.props.history.push('/students')
