@@ -33,7 +33,8 @@ class App extends Component{
     render() {
 	const CampusesComponent = () => (<allCampuses/>);
 	return (
-		<div className="App">
+		<div id="home-container">
+		<h1>All Schools</h1>
 		<div id="navbar">
 		<Router>
 		<Link to="/">Home</Link>
@@ -42,6 +43,8 @@ class App extends Component{
 		<Link to="/Campus">Campus</Link>
 		</Router>
 		</div>
+		<img src="https://www.arizona.edu/sites/default/files/student-life-campus-hero.jpg?itok=aX-0GgvT&timestamp=1553883754"/>
+	    
 		<Router>
 		<Route exact path="/" render={CampusesComponent}/>
 		<Route exact path="/Campuses" render={CampusesComponent}/>
