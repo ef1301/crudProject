@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { singleCampusThunk } from "../reducers/campusReducer";
+import { getSingleCampus } from "../reducers/campusReducer";
 //Show Campus with No Students set
 class singleCampus extends Component {
     constructor(props) {
@@ -43,5 +45,17 @@ componentDidMount()
     }
 }
 
+const mapStateToProps = state => {
+  return {
+    campuses: state.campuses,
+    students: state.students,
+    selectedCampus: state.selectedCampus
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchCampus: () => dispatch(singleCampusThunk(ownProps.match.params.id))
+  };
+};
 
-export default  singleCampus;
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);
