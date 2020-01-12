@@ -12,7 +12,7 @@ class SingleStudent extends Component {
     render() {
         const chosenStudent = this.props.students.selectedStudent
         const chosenCampusId = Number(chosenStudent.campusId)
-        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id == chosenCampusId)
+        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id === chosenCampusId)
         return (
             <div>
                 <h2>{chosenStudent.firstName} {chosenStudent.lastName}</h2>
