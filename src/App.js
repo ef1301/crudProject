@@ -13,7 +13,7 @@ class App extends Component{
 		lastName: '',
 		email:'',
 		imageURL: '',
-		gpa: 0
+		gpa: 0,
 	    }
 	    singleCampus: {
 		name: '',

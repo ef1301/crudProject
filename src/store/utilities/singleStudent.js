@@ -1,61 +1,63 @@
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { singleStudentThunk } from '../reducers/studentReducer'
+import { getSingleStudent } from '../reducers/studentReducer'
 
-import React, {Component} from 'react';
 
-
-class singleStudent extends React.Component
-{
-    constructor(props) {
-        super(props);
-        this.state = 
-        {
-            firstName: '',
-            lastName: '',
-            email: '',
-            imageURL: '',
-            isRegistered: false,
-            gpa: 0.0
-        }
-
-        // this.editStudent = this.editStudent.bind(this);
-        // this.deleteStudent = this.removeTrack.bind(this);
+class SingleStudent extends Component {
+    componentDidMount() 
+    {
+        this.props.fetchStudent()
     }
-
-
-    renderDisplay() {
-
-    }
-
-    addToCampus() {
-        if (this.state.isRegistered === false) {
-            return (
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>
-                            Name:
-                            <input type="text" value={this.state.value} onChange={this.handleChange} />
-                        </label>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </div>
-            )
-        }
-    }
-
-
-
     render() {
+        const chosenStudent = this.props.students.selectedStudent
+        const chosenCampusId = Number(chosenStudent.campusId)
+        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id == chosenCampusId)
         return (
-            <div className="studentView">
-                <h1>Show Student</h1>
-
-                    <h2>{this.state.firstName} {this.state.lastName}</h2>
-                {this.renderDisplay()}
+            <div>
+                <h2>{chosenStudent.firstName} {chosenStudent.lastName}</h2>
+                <ul>
+                    <li>Campus: {chosenCampus.map(elem => elem.name)}</li>
+                    <li>Email: {chosenStudent.email}</li>
+                    <li>GPA: {chosenStudent.gpa}</li>
+                    <img src={chosenStudent.imageUrl} />
+                </ul>
             </div>
-        );
+        )
     }
 }
 
 
+/*
+
+With React Redux, your components never access the store directly - connect does it for you. React Redux gives you two ways to let components dispatch actions:
+
+    By default, a connected component receives props.dispatch and can dispatch actions itself.
+    connect can accept an argument called mapDispatchToProps, which lets you create functions that dispatch when called, and pass those functions as props to your component.
 
 
-export default singleStudent;
+*/
+
+const mapStateToProps = (state) => {
+    return {
+        campuses: state.campuses,
+        students: state.students,
+        selectedStudent: state.selectedStudent,
+        selectedCampus: state.selectedCampus
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => 
+{
+    return {
+        fetchStudent: () => dispatch(singleStudentThunk(ownProps.match.params.id))
+    }
+}
+
+/*
+    As the second argument passed in to connect, mapDispatchToProps is used for
+    dispatching actions to the store. dispatch is a function of the Redux store.
+    You call store.dispatch to dispatch an action. This is the only way to trigger
+    a state change.
+*/
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);
