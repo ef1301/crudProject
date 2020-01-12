@@ -44,18 +44,7 @@ class allCampuses extends Component {
 
     render(){
 	return (
-		<div>
-		
-	    	<div className="header">
-		<h1>Campuses</h1>
-		<div className="navbar">
-		<Link to="/">Home</Link>
-		<Link to="/allCampuses">Campuses</Link>
-		</div>
-		</div>
-		
-		{this.display()}
-	    </div>
+		<h1> pls work </h1>
 	);
     }
 }
