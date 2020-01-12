@@ -1,7 +1,12 @@
+/* eslint-disable-all */
 import React, {Component} from 'react';
 import './App.css';
-import {connect} from 'react-redux';
-
+//import {connect} from 'react-redux';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import allCampuses from './store/utilities/allCampuses';
+import SingleStudent from './store/utilities/singleStudent';
+import singleCampus from './store/utilities/singleCampus';
 class App extends Component{
     constructor() {
 	super();
@@ -14,9 +19,10 @@ class App extends Component{
 		email:'',
 		imageURL: '',
 		gpa: 0
-	    }
+	    },
 	    singleCampus: {
 		name: '',
+		numStudents: 0,
 		imageURL: '',
 		address: '',
 		description: ''
@@ -25,10 +31,26 @@ class App extends Component{
     }
     
     render() {
+	const CampusesComponent = () => (<allCampuses/>);
 	return (
-		<div className="App">
-	  
+		<div id="home-container">
+		<h1>All Schools</h1>
+		<div id="navbar">
+		<Router>
+		<Link to="/">Home</Link>
+		<Link to="/allCampuses">Campuses</Link>
+		<Link to="/Student">Student</Link>
+		<Link to="/Campus">Campus</Link>
+		</Router>
+		</div>
+		<img src="https://www.arizona.edu/sites/default/files/student-life-campus-hero.jpg?itok=aX-0GgvT&timestamp=1553883754"/>
+	    
+		<Router>
+		<Route exact path="/" render={CampusesComponent}/>
+		<Route exact path="/Campuses" render={CampusesComponent}/>
+		</Router>
 	    </div>
+		
 	);
     }
 }
