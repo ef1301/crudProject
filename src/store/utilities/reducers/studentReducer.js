@@ -1,9 +1,9 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const GET_STUDENTS = 'GET_STUDENTS';
-const GET_SINGLE_STUDENT = 'GET_SINGLE_STUDENT'
-const ADD_STUDENT = 'ADD_STUDENT'
-const REMOVE_STUDENT = 'REMOVE_STUDENT'
+const GET_SINGLE_STUDENT = 'GET_SINGLE_STUDENT';
+const ADD_STUDENT = 'ADD_STUDENT';
+const REMOVE_STUDENT = 'REMOVE_STUDENT';
 
 const getStudents = (students) => ({
     type: GET_STUDENTS,
