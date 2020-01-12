@@ -8,7 +8,7 @@ class allCampuses extends Component {
 
     deleteCampus = () => {
 	for(let i=0; i < this.props.allCampuses.length; i++){
-	    if(this.props.name == this.props.allCampuses[i].name){
+	    if(this.props.name === this.props.allCampuses[i].name){
 		this.props.allCampuses.splice(i,1);
 	    }
 	}
@@ -30,7 +30,7 @@ class allCampuses extends Component {
 		return (
 			<div key={element} className="container">
 			<h1>All Campuses</h1>
-			<img src={element.imageURL}/><br/>
+			<img src={element.imageURL} alt=""/><br/>
 			Name: {element.name}<br/>
 			{element.numStudents} students<br/>
 			<button onclick={this.edit}>Edit</button>
