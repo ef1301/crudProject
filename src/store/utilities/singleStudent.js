@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { singleStudentThunk } from './reducers/studentReducer'
-import { getSingleStudent } from './reducers/studentReducer'
+import { singleStudentThunk } from '../utilities/reducers/studentReducer'
+//import { getSingleStudent } from '../utilities/reducers/studentReducer'
 
 
 class SingleStudent extends Component {
