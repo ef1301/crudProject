@@ -3,8 +3,10 @@ import React, {Component} from 'react';
 import './App.css';
 //import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import allCampuses from './store/utilities/allCampuses';
-
+import SingleStudent from './store/utilities/singleStudent';
+import singleCampus from './store/utilities/singleCampus';
 class App extends Component{
     constructor() {
 	super();
@@ -29,14 +31,20 @@ class App extends Component{
     }
     
     render() {
-	const allCampusesComponent = () => (<allCampuses/>);
+	const CampusesComponent = () => (<allCampuses/>);
 	return (
 		<div className="App">
 		<div id="navbar">
+		<Router>
+		<Link to="/">Home</Link>
+		<Link to="/allCampuses">Campuses</Link>
+		<Link to="/Student">Student</Link>
+		<Link to="/Campus">Campus</Link>
+		</Router>
 		</div>
 		<Router>
-		<Route exact path="/" render={allCampusesComponent}/>
-		<Route exact path="/allCampuses" render={allCampusesComponent}/>
+		<Route exact path="/" render={CampusesComponent}/>
+		<Route exact path="/Campuses" render={CampusesComponent}/>
 		</Router>
 	    </div>
 		
