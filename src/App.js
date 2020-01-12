@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import allCampuses from './store/utilities/allCampuses';
 import SingleStudent from './store/utilities/singleStudent';
 import singleCampus from './store/utilities/singleCampus';
+import Home from './store/utilities/Home';
 class App extends Component{
     constructor() {
 	super();
@@ -31,26 +32,15 @@ class App extends Component{
     }
     
     render() {
-	const CampusesComponent = () => (<allCampuses/>);
+	const HomeComponent = () => (<Home/>);
+	const allCampusesComponent = () => (<allCampuses/>);
 	return (
-		<div id="home-container">
-		<h1>All Schools</h1>
-		<div id="navbar">
 		<Router>
-		<Link to="/">Home</Link>
-		<Link to="/allCampuses">Campuses</Link>
-		<Link to="/Student">Student</Link>
-		<Link to="/Campus">Campus</Link>
-		</Router>
+		<div>
+		<Route exact path="/" render={HomeComponent}/>
+		<Route exact path="/allCampuses" render={allCampusesComponent}/>
 		</div>
-		<img src="https://www.arizona.edu/sites/default/files/student-life-campus-hero.jpg?itok=aX-0GgvT&timestamp=1553883754"/>
-	    
-		<Router>
-		<Route exact path="/" render={CampusesComponent}/>
-		<Route exact path="/Campuses" render={CampusesComponent}/>
 		</Router>
-	    </div>
-		
 	);
     }
 }

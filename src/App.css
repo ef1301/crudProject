@@ -2,14 +2,20 @@ body {
     background-color: navy;
     
 }
-#home-container {
+
+.home-container {
     text-align: center;
 }
-#home-container h1 {
+.home-container h1 {
     color: gold;
 }
+.home-container img {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 90%;
+}
 
-#navbar {
+.navbar {
     margin-left: auto;
     margin-right: auto;
     width: 90%;
@@ -36,11 +42,5 @@ a:hover {
     background-color: gold;
     border: medium solid navy;
 
-}
-
-#home-container img {
-    margin-top: 2%;
-    margin-bottom: 2%;
-    width: 90%;
 }
 
