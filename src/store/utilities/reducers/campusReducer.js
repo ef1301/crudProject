@@ -82,4 +82,4 @@ const campusReducer = (state = initialState, action) => {
     }
 }
 
-module.exports = {campusReducer, getCampuses, addCampus, removeCampus, getCampusesThunk, singleCampusThunk, addCampusThunk, removeCampusThunk}
+export {campusReducer, getCampuses, addCampus, removeCampus, getCampusesThunk, singleCampusThunk, addCampusThunk, removeCampusThunk}
