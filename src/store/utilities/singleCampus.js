@@ -30,7 +30,7 @@ componentDidMount()
                     <ul>
                         {filteredStudents.map(student =>
                             <div>
-                                <li><a href={`http://localhost:1337/#/students/${student.id}`}>{student.firstName} {student.lastName}</a></li>
+                                <li><a href={`http://localhost:3000/#/students/${student.id}`}>{student.firstName} {student.lastName}</a></li>
                                 <li>{student.email}</li>
                                 <li>{student.gpa}</li>
                                 <img src={student.imageUrl} />
