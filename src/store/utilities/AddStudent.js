@@ -55,19 +55,19 @@ class AddStudentForm extends Component {
 		<h2>Add Student</h2>
 		
                 <label htmlFor="id">ID: </label>
-                <input name="id" type="number" onChange={this.handleChange}></input><br/>
+                <input required name="id" type="number" placeholder="Enter Student ID." onChange={this.handleChange}></input><br/>
 		
                 <label htmlFor="name">Name: </label>
-                <input placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
+                <input required placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
 		
 		<label htmlFor="email">Email: </label>
-                <input placeholder="Enter Email Address" name="email" type="email" onChange={this.handleChange}></input><br/>
+                <input required placeholder="Enter Email Address" name="email" type="email" onChange={this.handleChange}></input><br/>
 		
 		<label htmlFor="imageURL">ImageURL: </label>
                 <input placeholder="Enter ImageURL" name="imageURL" type="text" onChange={this.handleChange}></input><br/>
 		
 		<label htmlFor="gpa">GPA: </label>
-                <input placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
+                <input required placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
 		
                 <button>Add Student</button>
 		</form>
