@@ -109,6 +109,11 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
+export const singleStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = fetchSingleStudent(id);
+    dispatch(resolvedActionObject);
+}
+
 // REDUCER FUNCTION;
 export default(state = [], action) => {
     switch (action.type) {
