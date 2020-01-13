@@ -1,7 +1,7 @@
 //A reducer to combine campuses and students
 
-import { campusReducer } from "./campusReducer";
-import { fetchStudentsThunk, addStudentThunk, removeStudentThunk } from "./studentReducer";
+import { singleCampusThunk, removeCampusThunk, addCampusThunk, fetchCampusesThunk   } from "./campusReducer";
+import {  fetchStudentsThunk, addStudentThunk, removeStudentThunk } from "./studentReducer";
 import { combineReducers } from "redux";
 
  const initialState = {
@@ -11,7 +11,7 @@ import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   students: { fetchStudentsThunk, addStudentThunk, removeStudentThunk },
-  campuses: campusReducer
+  campuses: { singleCampusThunk, fetchCampusesThunk, removeCampusThunk, addCampusThunk  }
 });
 
 export default rootReducer;
