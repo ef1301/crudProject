@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
-import { studentReducer, getStudents, getSingleStudent, addStudentThunk, singleStudentThunk, getStudentsThunk, removeStudentThunk } from './store/utilities/reducers/studentReducer';
+import {  } from '../components/containers';
 
 
 import SingleStudent from './store/utilities/singleStudent';
