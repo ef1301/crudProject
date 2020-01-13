@@ -24,8 +24,8 @@ const removeCampus = (id) => ({
     id
 })
 
-export const fetchStudentsThunk = () => (dispatch) => {
-    const arrayOfStudentsFromAPI = [
+export const fetchCampusesThunk = () => (dispatch) => {
+    const arrayOfCampusesFromAPI = [
         {
         "id": 4,
         "firstName": "Jerry",

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { singleStudentThunk } from '../utilities/reducers/studentReducer'
+import { fetchStudentsThunk, removeStudentThunk, addStudentThunk  } from './reducers/studentReducer';
 //import { getSingleStudent } from '../utilities/reducers/studentReducer'
 
 
