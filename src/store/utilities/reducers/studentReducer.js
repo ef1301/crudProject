@@ -1,6 +1,7 @@
 
 //Action Types to be dispatched later
 const FETCH_STUDENTS = "FETCH_STUDENTS";
+const FETCH_SINGLE_STUDENT = "FETCH_SINGLE_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
 
@@ -12,7 +13,7 @@ const fetchStudents = (students) => {
     }
 }
 
-const fetchSingleStudent = (student) => {
+const fetchSingleStudent = (id) => {
   return {
     type: FETCH_SINGLE_STUDENT,
     payload: id
