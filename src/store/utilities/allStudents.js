@@ -13,7 +13,7 @@ class AllStudents extends Component {
 		    <div className="container">
 		    <h2>All Students</h2>
 		    <p>There are no students registered in the database.</p>
-		    <button>Add Student</button>
+				<Link to="/AddStudent">Add Student</Link>
 		    </div>
 	    );
 	}

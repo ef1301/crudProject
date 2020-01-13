@@ -14,6 +14,7 @@ import Home from './store/utilities/Home';
 import AllCampuses from './store/utilities/allCampuses';
 import AllStudents from './store/utilities/allStudents';
 import AddCampus from './store/utilities/AddCampus';
+import AddStudent from './store/utilities/AddStudent';
 
 class App extends Component{
     constructor() {
@@ -45,6 +46,7 @@ class App extends Component{
 	const singleStudentComponent = () => (<SingleStudent/>);
 	const singleCampusComponent = () => (<SingleCampus/>);
 	const addCampusComponent = () => (<AddCampus/>);
+	const addStudentComponent = () => (<AddStudent />);
 
 	return (
 		<Router>
@@ -55,6 +57,7 @@ class App extends Component{
 		<Route exact path="/Student/" render={singleStudentComponent}/>
 		<Route exact path="/Campus/" render={singleCampusComponent}/>
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
+		<Route exact path="/AddStudent/" render={addStudentComponent} />
 		</Switch>
 		</Router>
 	);
