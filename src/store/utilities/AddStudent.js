@@ -36,7 +36,7 @@ class AddStudentForm extends Component {
                 <div>
                     <div className="home-container">
                         <div className="header">
-                            <h1>Add Student</h1>
+                            <h1>ALL STUDENTS</h1>
 
                             <div className="navbar">
                                 <Link to="/">Home</Link>
@@ -49,7 +49,7 @@ class AddStudentForm extends Component {
                     </div>
                 </div>
             <form onSubmit={this.handleSubmit}>
-                <h1>ADD CAMPUS</h1>
+                <h1>ADD STUDENT</h1>
                 <label htmlFor="id">ID:</label>
                 <input name="id" type="number" onChange={this.handleChange}></input>
                 <label htmlFor="name">Name:</label>
