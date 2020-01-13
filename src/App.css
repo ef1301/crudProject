@@ -1,6 +1,5 @@
 body {
     background-color: navy;
-    
 }
 
 .home-container {
@@ -44,3 +43,28 @@ a:hover {
 
 }
 
+.container {
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 1% 1%;
+    background-color: white;
+    border: medium solid gold;
+}
+
+.container button{
+    color: white;
+    font-weight: bold;
+    background-color: navy;
+    border: medium solid gold;
+    font-size: 1.05em;
+    padding: 1%;
+}
+
+.container button:hover{
+    color: white;
+    background-color: gold;
+    border: medium solid gold;
+    font-size: 1.05em;
+    padding: 1%;
+}
