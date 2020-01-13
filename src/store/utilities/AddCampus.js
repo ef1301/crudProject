@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addCampusThunk } from '../utilities/reducers/campusReducer'
+import { Link } from "react-router-dom";
 
 class AddCampus extends Component 
 {
@@ -28,7 +29,22 @@ class AddCampus extends Component
 
     render() {
         return (
+        <div>    
             <div>
+                <div className="home-container">
+                        <div className="header">
+                            <h1>All Campuses</h1>
+
+                            <div className="navbar">
+                                <Link to="/">Home</Link>
+                                <Link to="/AllCampuses">Campuses</Link>
+                                <Link to="/AllStudents">Students</Link>
+                                <Link to="/Student">Student</Link>
+                                <Link to="/Campus">Campus</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h1>ADD CAMPUS</h1>
                 <form action="POST" onSubmit={this.handleSubmit}>
                     <div>

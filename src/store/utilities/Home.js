@@ -12,11 +12,11 @@ class Home extends Component {
 	    	<div className="header">
 		<h1>Home</h1>
 		<div className="navbar">
-		<Link to="/">Home</Link>
-		<Link to="/AllCampuses">Campuses</Link>
-		<Link to="/AllStudents">Students</Link>
-		<Link to="/Student">Student</Link>
-		<Link to="/Campus">Campus</Link>
+			<Link to="/">Home</Link>
+			<Link to="/AllCampuses">Campuses</Link>
+			<Link to="/AllStudents">Students</Link>
+			<Link to="/Student">Student</Link>
+			<Link to="/Campus">Campus</Link>
 		</div>
 		</div>
 		

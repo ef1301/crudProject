@@ -8,7 +8,7 @@ class AllStudents extends Component {
 
         display() {
 	console.log(this.props.allCampuses);
-	if(this.props.allStudents == undefined){
+	if(this.props.allStudents === undefined){
 	    return (
 		    <div className="container">
 		    <h2>All Students</h2>

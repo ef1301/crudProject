@@ -1,3 +1,39 @@
+
+//Action Types to be dispatched later
+const FETCH_STUDENTS = "FETCH_STUDENTS";
+const FETCH_SINGLE_STUDENT = "FETCH_SINGLE_STUDENT";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
+const ADD_STUDENT = "ADD_STUDENT";
+
+// ACTION CREATOR
+const fetchStudents = (students) => {
+    return {
+        type: FETCH_STUDENTS,
+        payload: students
+    }
+}
+
+const fetchSingleStudent = (id) => {
+  return {
+    type: FETCH_SINGLE_STUDENT,
+    payload: id
+  }
+}
+
+const removeStudent = (id) => {
+    return {
+        type: REMOVE_STUDENT,
+        payload: id
+    }
+}
+
+const addStudent = (student) => {
+    return {
+        type: ADD_STUDENT,
+        payload: student
+    }
+}
+
 // THUNK CREATOR;
 // Below we have dummyData
 export const fetchStudentsThunk = () => (dispatch) => {
@@ -76,41 +112,6 @@ export const addStudentThunk = (student) => (dispatch) => {
 export const singleStudentThunk = (id) => (dispatch) => {
     let resolvedActionObject = fetchSingleStudent(id);
     dispatch(resolvedActionObject);
-}
-
-//Action Types to be dispatched later
-const FETCH_STUDENTS = "FETCH_STUDENTS";
-const FETCH_SINGLE_STUDENT = "FETCH_SINGLE_STUDENT";
-const REMOVE_STUDENT = "REMOVE_STUDENT";
-const ADD_STUDENT = "ADD_STUDENT";
-
-// ACTION CREATOR
-const fetchStudents = (students) => {
-    return {
-        type: FETCH_STUDENTS,
-        payload: students
-    }
-}
-
-const fetchSingleStudent = (id) => {
-  return {
-    type: FETCH_SINGLE_STUDENT,
-    payload: id
-  }
-}
-
-const removeStudent = (id) => {
-    return {
-        type: REMOVE_STUDENT,
-        payload: id
-    }
-}
-
-const addStudent = (student) => {
-    return {
-        type: ADD_STUDENT,
-        payload: student
-    }
 }
 
 

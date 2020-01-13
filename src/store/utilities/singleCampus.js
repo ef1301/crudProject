@@ -24,11 +24,9 @@ componentDidMount()
         //Replace a href with react router
         return (
 		<div>
-		
 	    	<div className="home-container">
 	    	<div className="header">
 		<h1>Campus</h1>
-		
 		<div className="navbar">
 		<Link to="/">Home</Link>
 		<Link to="/AllCampuses">Campuses</Link>

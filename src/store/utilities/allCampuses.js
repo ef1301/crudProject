@@ -7,13 +7,7 @@ class AllCampuses extends Component {
     super(props);
   }
 
-  handleOnClick() {
-    return (
-      <div>
-        <AddCampus />
-      </div>
-    );
-  }
+  
 
   display() {
     console.log(this.props.allCampuses);
@@ -22,10 +16,12 @@ class AllCampuses extends Component {
         <div className="container">
           <h2>All Campuses</h2>
           <p>There are no campuses registered in the database.</p>
-          <button onClick={this.handleOnClick}>Add Campus</button>
+          <Link to="/AddCampus">Add Campus</Link>
         </div>
       );
-    } else {
+    } 
+    else 
+    {
       let items = this.props.allCampuses.map(element => {
         return (
           <div key={element} className="container">
