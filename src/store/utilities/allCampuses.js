@@ -16,7 +16,9 @@ class AllCampuses extends Component {
         <div className="container">
           <h2>All Campuses</h2>
           <p>There are no campuses registered in the database.</p>
+          <div  class="add_student">
           <Link to="/AddCampus">Add Campus</Link>
+          </div>
         </div>
       );
     } 

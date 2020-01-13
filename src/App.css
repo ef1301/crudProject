@@ -47,6 +47,17 @@ a:hover {
 
 }
 
+.add_student
+{
+    color: white;
+    font-weight: bold;
+    background-color: navy;
+    border: solid gold;
+    font-size: 1.05em;
+    padding: 1%;  
+    width: 14.5%;
+}
+
 .container {
     margin-top: 2%;
     margin-left: 3%;
