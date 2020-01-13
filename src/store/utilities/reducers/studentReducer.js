@@ -109,7 +109,7 @@ export const addStudentThunk = (student) => (dispatch) => {
 }
 
 // REDUCER FUNCTION;
-export default (state = [], action) => {
+export default(state = [], action) => {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;

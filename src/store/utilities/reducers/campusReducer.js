@@ -9,7 +9,7 @@ const fetchCampuses = (campuses) => ({
     campuses
 })
 
-const fethtSingleCampus = (selectedCampus) => ({
+const fetchSingleCampus = (selectedCampus) => ({
     type:GET_SINGLE_CAMPUS,
     selectedCampus
 })
@@ -94,11 +94,11 @@ const removeCampusThunk = id => dispatch => {
 };
 
 const addCampusThunk = (campus) => (dispatch) => {
-    let resolvedActionObject = addStudentThunk(student);
+    let resolvedActionObject = addSttThunk(student);
     dispatch(resolvedActionObject);    
 };
 
-const campusReducer = (state = [], action) => {
+ export default(state = [], action) => {
     switch(action.type){
         case FETCH_CAMPUSES:
             return campuses;
@@ -113,4 +113,4 @@ const campusReducer = (state = [], action) => {
     }
 }
 
-export {campusReducer, getCampuses, addCampus, removeCampus, getCampusesThunk, singleCampusThunk, addCampusThunk, removeCampusThunk}
+
