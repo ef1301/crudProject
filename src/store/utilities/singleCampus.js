@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import { singleCampusThunk } from "../utilities/reducers/campusReducer";
+//import { getSingleCampus } from "../utilities/reducers/campusReducer";
 //Show Campus with No Students set
 class singleCampus extends Component {
     constructor(props) {
@@ -14,7 +17,7 @@ componentDidMount()
     render() {
         const campusId = this.props.campuses.selectedCampus.id
         const studentList = this.props.students.students
-        const filteredStudents = studentList.filter(student => student.campusId == campusId)
+        const filteredStudents = studentList.filter(student => student.campusId === campusId)
         const campus = this.props.campuses.selectedCampus
         console.log(filteredStudents)
         //Replace a href with react router
@@ -43,5 +46,17 @@ componentDidMount()
     }
 }
 
+const mapStateToProps = state => {
+  return {
+    campuses: state.campuses,
+    students: state.students,
+    selectedCampus: state.selectedCampus
+  };
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    fetchCampus: () => dispatch(singleCampusThunk(ownProps.match.params.id))
+  };
+};
 
-export default  singleCampus;
+export default connect(mapStateToProps, mapDispatchToProps)(singleCampus);

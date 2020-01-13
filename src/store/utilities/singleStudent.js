@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { singleStudentThunk } from './reducers/studentReducer'
-import { getSingleStudent } from './reducers/studentReducer'
+import { singleStudentThunk } from '../utilities/reducers/studentReducer'
+//import { getSingleStudent } from '../utilities/reducers/studentReducer'
 
 
 class SingleStudent extends Component {
@@ -12,7 +12,7 @@ class SingleStudent extends Component {
     render() {
         const chosenStudent = this.props.students.selectedStudent
         const chosenCampusId = Number(chosenStudent.campusId)
-        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id == chosenCampusId)
+        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id === chosenCampusId)
         return (
             <div>
                 <h2>{chosenStudent.firstName} {chosenStudent.lastName}</h2>
