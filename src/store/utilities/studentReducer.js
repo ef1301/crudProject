@@ -86,39 +86,36 @@ const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
 
 // ACTION CREATOR
-const fetchStudents = (students) => {
+function fetchStudents(students) {
     return {
         type: FETCH_STUDENTS,
         payload: students
     }
 }
 
-const fetchSingleStudent = (id) => {
+function fetchSingleStudent(id) {
   return {
     type: FETCH_SINGLE_STUDENT,
     payload: id
   }
 }
 
-const removeStudent = (id) => {
+function removeStudent(id) {
     return {
         type: REMOVE_STUDENT,
         payload: id
     }
 }
 
-const addStudent = (student) => {
+function addStudent(student) {
     return {
         type: ADD_STUDENT,
         payload: student
     }
 }
 
-
-
-
 // REDUCER FUNCTION;
-export default(state = [], action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
