@@ -11,10 +11,12 @@ import { Link } from "react-router-dom";
 class AddStudentForm extends Component {
     constructor() {
         super();
-        this.state = 
-        {
+        this.state = {
             id: 0,
-            name: ""
+            name: "",
+	    email: "",
+	    imageURL: "",
+	    gpa: 0
         }
     }
 
@@ -32,13 +34,46 @@ class AddStudentForm extends Component {
         // if you look at the redux logger in the console, you will see that any student you add will have an id with a value that is not an integer but a string (ignore this as this would be taken care of in a more realistic scenario);
         // it is also a minor point for this lesson;
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor="id">ID:</label>
-                <input name="id" type="number" onChange={this.handleChange}></input>
-                <label htmlFor="name">Name:</label>
-                <input name="name" type="text" onChange={this.handleChange}></input>
+		<div>
+
+		<div className="home-container">
+                <div className="header">
+                <h1>All Campuses</h1>
+
+                <div className="navbar">
+                <Link to="/">Home</Link>
+                <Link to="/AllCampuses">Campuses</Link>
+                <Link to="/AllStudents">Students</Link>
+                <Link to="/Student">Student</Link>
+                <Link to="/Campus">Campus</Link>
+                </div>
+                </div>
+                </div>
+		
+		<div className="container">
+		<form onSubmit={this.handleSubmit}>
+		<h2>Add Student</h2>
+		
+                <label htmlFor="id">ID: </label>
+                <input name="id" type="number" onChange={this.handleChange}></input><br/>
+		
+                <label htmlFor="name">Name: </label>
+                <input placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
+		
+		<label htmlFor="email">Email: </label>
+                <input placeholder="Enter Email Address" name="email" type="email" onChange={this.handleChange}></input><br/>
+		
+		<label htmlFor="imageURL">ImageURL: </label>
+                <input placeholder="Enter ImageURL" name="imageURL" type="text" onChange={this.handleChange}></input><br/>
+		
+		<label htmlFor="gpa">GPA: </label>
+                <input placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
+		
                 <button>Add Student</button>
-            </form>
+		</form>
+		</div>
+
+	    </div>
         )
     }
 }

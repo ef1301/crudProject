@@ -7,8 +7,6 @@ class AllCampuses extends Component {
     super(props);
   }
 
-  
-
   display() {
     console.log(this.props.allCampuses);
     if (this.props.allCampuses == undefined) {
@@ -16,7 +14,7 @@ class AllCampuses extends Component {
         <div className="container">
           <h2>All Campuses</h2>
           <p>There are no campuses registered in the database.</p>
-          <div  class="add_student">
+          <div  className="add">
           <Link to="/AddCampus">Add Campus</Link>
           </div>
         </div>

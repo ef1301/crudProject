@@ -7,12 +7,20 @@ import { Link } from "react-router-dom";
 class AddCampus extends Component 
 {
     constructor() {
-        super()
-        this.handleSubmit = this.handleSubmit.bind(this)
+        super();
+	this.state = {
+	    name: '',
+	    imageURL: '',
+	    address: '',
+	    description: ''
+	};
+
     }
 
-    async handleSubmit(event) 
-    {
+    handleChange = (event) => {
+    }
+    
+    handleSubmit = (event) => {
         event.preventDefault();
         const campusName = event.target.name.value;
         const campusAddress = event.target.address.value;
@@ -29,30 +37,37 @@ class AddCampus extends Component
 
     render() {
         return (
-        <div>    
-            <div>
+		<div>    
                 <div className="home-container">
-                        <div className="header">
-                            <h1>All Campuses</h1>
+                <div className="header">
+                <h1>All Campuses</h1>
 
-                            <div className="navbar">
-                                <Link to="/">Home</Link>
-                                <Link to="/AllCampuses">Campuses</Link>
-                                <Link to="/AllStudents">Students</Link>
-                                <Link to="/Student">Student</Link>
-                                <Link to="/Campus">Campus</Link>
-                            </div>
-                        </div>
-                    </div>
+                <div className="navbar">
+                <Link to="/">Home</Link>
+                <Link to="/AllCampuses">Campuses</Link>
+                <Link to="/AllStudents">Students</Link>
+                <Link to="/Student">Student</Link>
+                <Link to="/Campus">Campus</Link>
                 </div>
+                </div>
+                </div>
+
+		<div className="container">
                 <form onSubmit={this.handleSubmit}>
-                    <h1>ADD CAMPUS</h1>
-                    <label htmlFor="id">ID:</label>
-                    <input name="id" type="number" onChange={this.handleChange}></input>
-                    <label htmlFor="name">Name:</label>
-                    <input name="name" type="text" onChange={this.handleChange}></input>
-                    <button>Add Student</button>
+                <h2>Add Campus</h2>
+                <label htmlFor="id">ID: </label>
+                <input name="id" type="number" onChange={this.handleChange}></input><br/>
+                <label htmlFor="name">Name: </label>
+                <input name="name" type="text" onChange={this.handleChange}></input><br/>
+		<label htmlFor="imageURL">ImageURL:</label>
+                <input name="imageURL" type="text" onChange={this.handleChange}></input><br/>
+		<label htmlFor="address">Address:</label>
+                <input name="address" type="text" onChange={this.handleChange}></input><br/>
+		<label htmlFor="description">Description:</label>
+                <input name="description" type="text" onChange={this.handleChange}></input><br/>
+                <button>Add Campus</button>
                 </form>
+		</div>
             </div>
         )
     }

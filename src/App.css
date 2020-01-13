@@ -28,7 +28,7 @@ form {
         text-align: center;
     }
 
-a, a:active {
+.navbar a, a:active {
     font-weight: bold;
     font-size: 1em;
     color: white;
@@ -40,46 +40,74 @@ a, a:active {
     border: medium solid navy;
 }
 
-a:hover {
+.navbar a:hover {
     color: navy;
     background-color: gold;
     border: medium solid navy;
 
 }
 
-.add_student
-{
+.add a {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    text-decoration: none;
     color: white;
     font-weight: bold;
     background-color: navy;
-    border: solid gold;
+    border: medium solid gold;
     font-size: 1.05em;
-    padding: 1%;  
-    width: 14.5%;
+    padding: 1%;
+}
+
+.add a:hover {
+    color: navy;
+    background-color: gold;
+    border: medium solid navy;
+    font-size: 1.05em;
+    padding: 1%;
 }
 
 .container {
     margin-top: 2%;
     margin-left: 3%;
     margin-right: 3%;
-    padding: 1% 1%;
-    background-color: white;
+    padding: 2% 2%;
+    background-color: lightyellow;
     border: medium solid gold;
 }
 
-.container button{
+.container a {
+
+}
+
+.container a:hover{
+}
+
+form {
+    text-align: left;
+    margin: 1% 2%;
+}
+
+form h2 {
+
+}
+form input {
+    margin: .5%;
+    width: 20%;
+}
+form button {
+    text-decoration: none;
     color: white;
     font-weight: bold;
     background-color: navy;
     border: medium solid gold;
     font-size: 1.05em;
-    padding: 1%;
+    padding: 1%;   
 }
-
-.container button:hover{
-    color: white;
+form button:hover {
+    color: navy;
     background-color: gold;
-    border: medium solid gold;
-    font-size: 1.05em;
-    padding: 1%;
+    border: medium solid navy;
+
 }

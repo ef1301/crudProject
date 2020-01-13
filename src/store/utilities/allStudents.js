@@ -13,7 +13,9 @@ class AllStudents extends Component {
 		    <div className="container">
 		    <h2>All Students</h2>
 		    <p>There are no students registered in the database.</p>
-				<Link to="/AddStudent">Add Student</Link>
+		    <div  className="add">
+		    <Link to="/AddStudent">Add Student</Link>
+		    </div>
 		    </div>
 	    );
 	}
