@@ -68,7 +68,7 @@ class AddCampus extends Component
                 <input name="address" required type="text" placeholder="Enter Campus Address." onChange={this.handleChange}></input><br/>
 		
 		<label htmlFor="description">Description:</label><br/>
-                <textarea required name="description" rows="4" cols="50" onChange={this.handleChange}></textarea><br/>
+                <textarea name="description" required name="description" rows="4" cols="50" onChange={this.handleChange}></textarea><br/>
 		
                 <button>Add Campus</button>
                 </form>
