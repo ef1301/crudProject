@@ -4,12 +4,19 @@ const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
 
-// ACTION CREATORS;
+// ACTION CREATOR
 const fetchStudents = (students) => {
     return {
         type: FETCH_STUDENTS,
         payload: students
     }
+}
+
+const fetchSingleStudent = (student) => {
+  return {
+    type: FETCH_SINGLE_STUDENT,
+    payload: id
+  }
 }
 
 const removeStudent = (id) => {
@@ -88,6 +95,7 @@ export const fetchStudentsThunk = () => (dispatch) => {
     ]
 
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
+    dispatch(fetchSingleStudent(id))
 }
 //Middleware (Between Dispatch and Store)
 export const removeStudentThunk = (id) => (dispatch) => {
@@ -104,6 +112,8 @@ export const addStudentThunk = (student) => (dispatch) => {
 export default (state = [], action) => {
     switch (action.type) {
         case FETCH_STUDENTS:
+            return action.payload;
+        case FETCH_SINGLE_STUDENT:
             return action.payload;
         case REMOVE_STUDENT:
             //action.payload is the array of students, only return when you get a match

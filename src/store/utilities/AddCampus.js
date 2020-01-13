@@ -45,7 +45,7 @@ class AddCampus extends Component
         )
     }
 }
-
+// async -> Promise based, expects a result in the future
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         writeCampus: async (campus) => dispatch(addCampusThunk(campus)),

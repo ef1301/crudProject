@@ -1,16 +1,15 @@
-import axios from 'axios';
 
-const GET_CAMPUSES = 'GET_CAMPUSES';
-const GET_SINGLE_CAMPUS = 'GET_SINGLE_CAMPUS'
+const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
+const FETCH_SINGLE_CAMPUS = 'GET_SINGLE_CAMPUS'
 const ADD_CAMPUS = 'ADD_CAMPUS'
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS'
 
-const getCampuses = (campuses) => ({
+const fetchCampuses = (campuses) => ({
     type:GET_CAMPUSES,
     campuses
 })
 
-const getSingleCampus = (selectedCampus) => ({
+const fethtSingleCampus = (selectedCampus) => ({
     type:GET_SINGLE_CAMPUS,
     selectedCampus
 })
@@ -25,14 +24,10 @@ const removeCampus = (id) => ({
     id
 })
 
-const getCampusesThunk = () => {
-    return async (dispatch) => {
-        await axios.get('/api/campuses')
-        .then(response => response.data)
-        .then(campuses => dispatch(getCampuses(campuses)))
-        .catch(console.err)
-    }
-}
+export const getCampusesThunk = id => dispatch => {
+  let resolvedActionObject = fetchCampuses(id);
+  dispatch(resolvedActionObject);
+};
 
 const singleCampusThunk = (campusId) => {
     return async (dispatch) => {
@@ -61,17 +56,17 @@ const removeCampusThunk = (id) => {
 }
   
 
-const initialState = {
+const state = {
     campuses: [],
     selectedCampus: []
 }
 
 
-const campusReducer = (state = initialState, action) => {
+const campusReducer = (state = [], action) => {
     switch(action.type){
-        case GET_CAMPUSES:
+        case FETCH_CAMPUSES:
         return {...state, campuses:action.campuses}
-        case GET_SINGLE_CAMPUS:
+        case FETCH_SINGLE_CAMPUS:
         return {...state, selectedCampus:action.selectedCampus}
         case ADD_CAMPUS:
         return {...state, campuses:[...state.campuses, action.campus]}
