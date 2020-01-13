@@ -20,10 +20,10 @@ export const fetchCampusesThunk = () => (dispatch) => {
         }
     ]
     dispatch(fetchCampuses(arrayOfCampusesFromAPI));
-    dispatch(fetchSingleCampus(id));
+  
 }
 export const removeCampusThunk = (id) => (dispatch) => {
-  let resolvedActionObject = removeStudentThunk(id);
+  let resolvedActionObject = removeCampusThunk(id);
   dispatch(resolvedActionObject);
 };
 
@@ -43,13 +43,13 @@ const ADD_CAMPUS = 'ADD_CAMPUS'
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS'
 
 const fetchCampuses = (campuses) => ({
-    type:GET_CAMPUSES,
+    type:FETCH_CAMPUSES,
     campuses
 })
 
-const fetchSingleCampus = (selectedCampus) => ({
-    type:GET_SINGLE_CAMPUS,
-    selectedCampus
+const fetchSingleCampus = (id) => ({
+    type:FETCH_SINGLE_CAMPUS,
+    id
 })
 
 const addCampus = (campus) => ({
@@ -65,11 +65,11 @@ const removeCampus = (id) => ({
  export default(state = [], action) => {
     switch(action.type){
         case FETCH_CAMPUSES:
-            return campuses;
-        case GET_SINGLE_CAMPUS:
-            return selectedCampus;
+            return action.campuses;
+        case FETCH_SINGLE_CAMPUS:
+            return action.id;
         case ADD_CAMPUS:
-            return [...state, campus]
+            return [...state, action.campus]
         case REMOVE_CAMPUS:
             return state.filter(campus=> campus.id !== action.id);
         default:    
