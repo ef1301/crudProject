@@ -88,12 +88,12 @@ export const fetchStudentsThunk = () => (dispatch) => {
     dispatch(fetchSingleCampus(id));
 
 
-const removeCampusThunk = id => dispatch => {
+export const removeCampusThunk = id => dispatch => {
   let resolvedActionObject = removeStudentThunk(student);
   dispatch(resolvedActionObject);
 };
 
-const addCampusThunk = (campus) => (dispatch) => {
+export const addCampusThunk = (campus) => (dispatch) => {
     let resolvedActionObject = addSttThunk(student);
     dispatch(resolvedActionObject);    
 };
