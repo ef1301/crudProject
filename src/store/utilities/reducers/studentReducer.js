@@ -1,103 +1,116 @@
-import axios from 'axios'
 
-const GET_STUDENTS = 'GET_STUDENTS';
-const GET_SINGLE_STUDENT = 'GET_SINGLE_STUDENT'
-const ADD_STUDENT = 'ADD_STUDENT'
-const REMOVE_STUDENT = 'REMOVE_STUDENT'
+//Action Types to be dispatched later
+const FETCH_STUDENTS = "FETCH_STUDENTS";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
+const ADD_STUDENT = "ADD_STUDENT";
 
-const getStudents = (students) => ({
-    type: GET_STUDENTS,
-    students
-})
-
-
-const getSingleStudent = (selectedStudent) => ({
-    type: GET_SINGLE_STUDENT,
-    selectedStudent
-})
-
-const addStudent = (student) => ({
-    type: ADD_STUDENT,
-    student
-})
-
-const removeStudent = (id) => ({
-    type: REMOVE_STUDENT,
-    id
-})
-
-//Action fires off a dispatch, causing a change to the store
-const getStudentsThunk = () => {
-    return (dispatch) => {
-        axios.get('/api/students')
-            .then(response => response.data)
-            .then(students => dispatch(getStudents(students)))
-            .catch(console.err)
+// ACTION CREATORS;
+const fetchStudents = (students) => {
+    return {
+        type: FETCH_STUDENTS,
+        payload: students
     }
 }
 
-const singleStudentThunk = (studentId) => {
-    console.log('singleStudent')
-    return async (dispatch) => {
-        await axios.get(`/api/students/${studentId}`)
-            .then(response => response.data)
-            .then(selectedStudent => dispatch(getSingleStudent(selectedStudent)))
-            .catch(console.err)
+const removeStudent = (id) => {
+    return {
+        type: REMOVE_STUDENT,
+        payload: id
     }
 }
 
-const addStudentThunk = (student) => {
-    return async (dispatch) => {
-        axios.post('/api/students', student)
-            .then(res => res.data)
-            .then(newStudent => {
-                dispatch(addStudent(newStudent))
-            })
+const addStudent = (student) => {
+    return {
+        type: ADD_STUDENT,
+        payload: student
     }
 }
 
-const removeStudentThunk = (id) => 
-{
-    return (dispatch) => {
-        return axios.delete(`/api/students/${id}`)
-            .then(dispatch(removeStudent(id)))
-            .catch(console.err)
-    }
+// THUNK CREATOR;
+// Below we have dummyData
+export const fetchStudentsThunk = () => (dispatch) => {
+    const arrayOfStudentsFromAPI = [
+        {
+        "id": 4,
+        "firstName": "Jerry",
+        "lastName": "Jingle",
+        "email": "jerryjingle@bells.com",
+        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "gpa": null,
+        "createdAt": "2018-12-06T19:58:21.314Z",
+        "updatedAt": "2018-12-06T19:58:21.314Z",
+        "campusId": 3
+        },
+        {
+        "id": 6,
+        "firstName": "Barry",
+        "lastName": "Huang",
+        "email": "someemailgoeshere@yahoo.com",
+        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "gpa": null,
+        "createdAt": "2018-12-06T20:04:04.275Z",
+        "updatedAt": "2018-12-06T20:04:04.275Z",
+        "campusId": 1
+        },
+        {
+        "id": 1,
+        "firstName": "justin",
+        "lastName": "mintzer",
+        "email": "mintzer.justin@gmail.com",
+        "imageUrl": "https://i.imgur.com/N9Koe2G.jpg",
+        "gpa": 4,
+        "createdAt": "2018-12-05T23:02:45.257Z",
+        "updatedAt": "2018-12-05T23:02:45.257Z",
+        "campusId": 1
+        },
+        {
+        "id": 24,
+        "firstName": "first",
+        "lastName": "LAST",
+        "email": "email@email.com",
+        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "gpa": null,
+        "createdAt": "2018-12-10T04:50:33.677Z",
+        "updatedAt": "2018-12-10T04:50:33.677Z",
+        "campusId": null
+        },
+        {
+        "id": 2,
+        "firstName": "bob",
+        "lastName": "jones",
+        "email": "bobbyboy1234@yahoo.com",
+        "imageUrl": "https://i.imgur.com/GuAB8OE.jpg",
+        "gpa": 3.7,
+        "createdAt": "2018-12-05T23:02:45.270Z",
+        "updatedAt": "2019-06-14T00:15:35.429Z",
+        "campusId": 1
+        }
+    ]
+
+    dispatch(fetchStudents(arrayOfStudentsFromAPI))
+}
+//Middleware (Between Dispatch and Store)
+export const removeStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = removeStudent(id); 
+    dispatch(resolvedActionObject);
 }
 
-//***********REDUCER FUNCTIONS ***************/
-const initialState = {
-    students: [],
-    selectedStudent: []
+export const addStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = addStudent(student); 
+    dispatch(resolvedActionObject);
 }
 
-/*********...Syntax explained ***************/
-
-/*
-    {...this.props} spreads out the "own" enumerable properties in props as discrete properties 
-    on the Modal element you're creating. For instance, if this.props contained a: 1 and b: 2, 
-    then
-
-    <Modal {...this.props} title='Modal heading' animation={false}>
-
-    would be the same as
-
-    <Modal a={this.props.a} b={this.props.b} title='Modal heading' animation={false}>
-*/
-
-const studentReducer = (state = initialState, action) => {
+// REDUCER FUNCTION;
+export default (state = [], action) => {
     switch (action.type) {
-        case GET_STUDENTS:
-            return { ...state, students: action.students }
-        case GET_SINGLE_STUDENT:
-            return { ...state, selectedStudent: action.selectedStudent }
-        case ADD_STUDENT:
-            return { ...state, students: [...state.students, action.student] }
+        case FETCH_STUDENTS:
+            return action.payload;
         case REMOVE_STUDENT:
-            return { ...state, students: state.students.filter(student => student.id !== action.id) }
+            //action.payload is the array of students, only return when you get a match
+            return state.filter(student => student.id !== action.payload);
+        case ADD_STUDENT:
+            return [...state, action.payload]
         default:
-            return state
+            return state;
     }
 }
-
-export { studentReducer, getStudents, getSingleStudent, addStudentThunk, singleStudentThunk, getStudentsThunk, removeStudentThunk };
