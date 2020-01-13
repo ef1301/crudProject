@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import './App.css';
 //import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 
 import allCampuses from './store/utilities/allCampuses';
 import SingleStudent from './store/utilities/singleStudent';
@@ -38,8 +37,10 @@ class App extends Component{
 	const allCampusesComponent = () => (<allCampuses/>);
 	return (
 		<Router>
+		<Switch>
 		<Route exact path="/" render={HomeComponent}/>
 		<Route exact path="/allCampuses" render={allCampusesComponent}/>
+		</Switch>
 		</Router>
 	);
     }

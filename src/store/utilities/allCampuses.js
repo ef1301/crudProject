@@ -7,7 +7,7 @@ class allCampuses extends Component {
     }
 
     deleteCampus = () => {
-	for(let i=0; i < this.props.allCampuses.length; i++){
+	for(let i = 0; i < this.props.allCampuses.length; i++){
 	    if(this.props.name === this.props.allCampuses[i].name){
 		this.props.allCampuses.splice(i,1);
 	    }
@@ -43,9 +43,7 @@ class allCampuses extends Component {
     }
 
     render(){
-	return (
-		<h1> pls work </h1>
-	);
+	return (<h1> pls work </h1>);
     }
 }
 
