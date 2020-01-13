@@ -5,16 +5,17 @@ import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
-import {  } from '../components/containers';
+import { AddCampus, AddStudentForm, AllCampuses, AllStudents } from '../components/containers';
+
+import SingleStudent from './components/views';
+import SingleCampus from './components/views';
+import Home from './components/views';
+import AllCampuses from '../components/containers';
+import AllStudents from '../components/containers';
+import AddCampus from '../components/containers';
+import AddStudent from '../components/containers';
 
 
-import SingleStudent from './store/utilities/singleStudent';
-import SingleCampus from './store/utilities/singleCampus';
-import Home from './store/utilities/Home';
-import AllCampuses from './store/utilities/allCampuses';
-import AllStudents from './store/utilities/allStudents';
-import AddCampus from './store/utilities/AddCampus';
-import AddStudent from './store/utilities/AddStudent';
 
 class App extends Component{
     constructor() {
