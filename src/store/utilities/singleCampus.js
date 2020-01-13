@@ -14,7 +14,8 @@ componentDidMount()
     this.props.fetchCampus()
 }
 
-    render() {
+    render() 
+    {
         const campusId = this.props.campuses.selectedCampus.id
         const studentList = this.props.students.students
         const filteredStudents = studentList.filter(student => student.campusId === campusId)
