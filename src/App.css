@@ -24,6 +24,10 @@ body {
     border: medium solid gold;
 }
 
+form {
+        text-align: center;
+    }
+
 a, a:active {
     font-weight: bold;
     font-size: 1em;

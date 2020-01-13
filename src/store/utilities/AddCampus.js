@@ -45,17 +45,13 @@ class AddCampus extends Component
                         </div>
                     </div>
                 </div>
-                <h1>ADD CAMPUS</h1>
-                <form action="POST" onSubmit={this.handleSubmit}>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" name="name"></input>
-                    </div>
-                    <div>
-                        <label htmlFor="address">Address</label>
-                        <input type="text" name="address"></input>
-                    </div>
-                    <input type="submit" name="submit" value="add campus"></input>
+                <form onSubmit={this.handleSubmit}>
+                    <h1>ADD CAMPUS</h1>
+                    <label htmlFor="id">ID:</label>
+                    <input name="id" type="number" onChange={this.handleChange}></input>
+                    <label htmlFor="name">Name:</label>
+                    <input name="name" type="text" onChange={this.handleChange}></input>
+                    <button>Add Student</button>
                 </form>
             </div>
         )
