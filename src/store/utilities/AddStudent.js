@@ -32,13 +32,31 @@ class AddStudentForm extends Component {
         // if you look at the redux logger in the console, you will see that any student you add will have an id with a value that is not an integer but a string (ignore this as this would be taken care of in a more realistic scenario);
         // it is also a minor point for this lesson;
         return (
+            <div>
+                <div>
+                    <div className="home-container">
+                        <div className="header">
+                            <h1>Add Student</h1>
+
+                            <div className="navbar">
+                                <Link to="/">Home</Link>
+                                <Link to="/AllCampuses">Campuses</Link>
+                                <Link to="/AllStudents">Students</Link>
+                                <Link to="/Student">Student</Link>
+                                <Link to="/Campus">Campus</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <form onSubmit={this.handleSubmit}>
+                <h1>ADD CAMPUS</h1>
                 <label htmlFor="id">ID:</label>
                 <input name="id" type="number" onChange={this.handleChange}></input>
                 <label htmlFor="name">Name:</label>
                 <input name="name" type="text" onChange={this.handleChange}></input>
                 <button>Add Student</button>
             </form>
+            </div>
         )
     }
 }
