@@ -1,14 +1,18 @@
 /* eslint-disable-all */
 import React, {Component} from 'react';
 import './App.css';
-//import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
-import allCampuses from './store/utilities/allCampuses';
+import { studentReducer, getStudents, getSingleStudent, addStudentThunk, singleStudentThunk, getStudentsThunk, removeStudentThunk } from './store/utilities/reducers/studentReducer';
+
+
 import SingleStudent from './store/utilities/singleStudent';
-import singleCampus from './store/utilities/singleCampus';
+import SingleCampus from './store/utilities/singleCampus';
 import Home from './store/utilities/Home';
+import AllCampuses from './store/utilities/allCampuses';
+import AllStudents from './store/utilities/allStudents';
 
 class App extends Component{
     constructor() {
@@ -35,11 +39,19 @@ class App extends Component{
     
     render() {
 	const HomeComponent = () => (<Home/>);
-	const allCampusesComponent = () => (<allCampuses/>);
+	const AllCampusesComponent = () => (<AllCampuses/>);
+	const AllStudentsComponent = () => (<AllStudents/>);
+	const singleStudentComponent = () => (<SingleStudent/>);
+	const singleCampusComponent = () => (<SingleCampus/>);
 	return (
 		<Router>
+		<Switch>
 		<Route exact path="/" render={HomeComponent}/>
-		<Route exact path="/allCampuses" render={allCampusesComponent}/>
+		<Route exact path="/AllCampuses" render={AllCampusesComponent}/>
+		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
+		<Route exact path="/Student/" render={singleStudentComponent}/>
+		<Route exact path="/Campus/" render={singleCampusComponent}/>
+		</Switch>
 		</Router>
 	);
     }
@@ -54,6 +66,7 @@ function mapState(state) {
 //in other words, you can now call this.props.incrementCoutner;
 function mapDispatch(dispatch) {
     return {
+	
     }
 }
 

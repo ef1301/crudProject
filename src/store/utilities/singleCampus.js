@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { singleCampusThunk } from "../utilities/reducers/campusReducer";
 //import { getSingleCampus } from "../utilities/reducers/campusReducer";
 //Show Campus with No Students set
-class singleCampus extends Component {
+class SingleCampus extends Component {
     constructor(props) {
         super(props);
     }
@@ -22,7 +22,21 @@ componentDidMount()
         console.log(filteredStudents)
         //Replace a href with react router
         return (
-            <div>
+		<div>
+		
+	    	<div className="home-container">
+	    	<div className="header">
+		<h1>Campus</h1>
+		
+		<div className="navbar">
+		<Link to="/">Home</Link>
+		<Link to="/AllCampuses">Campuses</Link>
+		<Link to="/Student">Student</Link>
+		<Link to="/Campus">Campus</Link>
+		</div>
+	    </div>
+		</div>
+	    
                 <div>
                     <h2>{campus.name}</h2>
                     <img src={campus.imageUrl} />
@@ -59,4 +73,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(singleCampus);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);

@@ -9,11 +9,11 @@ import ThunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 //REDUCER FUNCTIONS;
-//import counterReducer from '../store/utilities/counter';
+import rootReducer from "./utilities/reducers/index";
 
 
 //this variable will hold the object that will contain all of youre reducers
-const rootReducer = combineReducers({/*/reducers go here*/});
+//const rootReducer = combineReducers({/*/reducers go here*/});
 //logger: this is the logger we saw earlier --- by passing it collasped: ture, the contents of each object that is logged to the console will already be collasped
 const logger = createLogger({collasped: true});
 const middleware = composeWithDevTools(applyMiddleware(ThunkMiddleware, logger));
