@@ -62,7 +62,7 @@ const removeCampus = (id) => ({
     id
 })
 
- export default(state = [], action) => {
+function allCampusReducer(state = [], action) {
     switch(action.type){
         case FETCH_CAMPUSES:
             return action.campuses;
@@ -76,5 +76,7 @@ const removeCampus = (id) => ({
             return state
     }
 }
+
+export default allCampusReducer;
 
 

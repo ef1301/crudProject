@@ -115,7 +115,7 @@ function addStudent(student) {
 }
 
 // REDUCER FUNCTION;
-export default (state = [], action) => {
+function allStudentsReducer(state = [], action) {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
@@ -130,3 +130,5 @@ export default (state = [], action) => {
             return state;
     }
 }
+
+export default allStudentsReducer;
