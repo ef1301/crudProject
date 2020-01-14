@@ -11,19 +11,20 @@ class AllStudents extends Component {
 
     handleRemoveStudent = (id) => {
 	this.props.removeStudent(id);
-    }
+	}	
+	
+
 
     display = () => {
 	// console.log(this.props.students);
 	if(this.props.allStudents.length === 0){
 	    return (
 		    <div>
-		    <h2>All Students</h2>
-		    <p>There are no students registered in the database.</p>
-		    <div  className="add">
-		    <Link to="/AddStudent">Add Student</Link>
-		    </div>
-
+				<h2>All Students</h2>
+				<p>There are no students registered in the database.</p>
+					<div  className="add">
+					<Link to="/AddStudent">Add Student</Link>
+				</div>
 		    </div>
 	    );
 	}

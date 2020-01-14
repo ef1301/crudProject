@@ -9,6 +9,7 @@ import AddCampus from '../components/containers/AddCampus';
 import AllCampuses from '../components/containers/allCampuses';
 import AllStudents from '../components/containers/allStudents';
 import AddStudent from '../components/containers/AddStudent';
+import EditStudent from '../components/containers/EditStudent';
 
 import SingleStudent from '../components/views/singleStudent';
 import SingleCampus from '../components/views/singleCampus';
@@ -47,6 +48,7 @@ class App extends Component{
 	const singleCampusComponent = () => (<SingleCampus/>);
 	const addCampusComponent = () => (<AddCampus/>);
 	const addStudentComponent = () => (<AddStudent />);
+	const editStudentComponent = () => (<EditStudent />);
 
 	return (
 		<Router>
@@ -58,6 +60,7 @@ class App extends Component{
 		<Route exact path="/Campus/" render={singleCampusComponent}/>
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
+		<Route exact path="/EditStudent/" render={editStudentComponent} />
 		</Switch>
 		</Router>
 	);
