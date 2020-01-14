@@ -55,4 +55,18 @@ class AllStudents extends Component {
     }
 }
 
-export default AllStudents;
+function mapState(state) {
+	return {
+		allStudents: state.allStudents
+	}
+}
+
+function mapDispatch(dispatch) {
+	return {
+		fetchStudents: () => dispatch(fetchStudentsThunk()),
+		removeStudent: (id) => dispatch(removeStudentThunk(id))
+	}
+}
+
+export default connect(mapState, mapDispatch)(AllStudentsContainer);
+
