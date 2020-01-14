@@ -1,3 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function studentForm
+class studentForm extends Component {
+
+
+}
+
+export default studentForm;
