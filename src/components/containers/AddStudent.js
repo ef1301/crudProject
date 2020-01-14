@@ -71,7 +71,7 @@ class AddStudentForm extends Component {
 		<label htmlFor="gpa">GPA: </label>
                 <input required placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
 
-                <button>Add Student</button>
+                <button>Submit Changes</button>
 		</form>
 		</div>
 

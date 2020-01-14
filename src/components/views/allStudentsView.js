@@ -1,5 +1,4 @@
 import React from "react";
-import EditStudent from "../containers/EditStudent";
 import { Link } from "react-router-dom";
 
 function AllStudentsView(props) {
