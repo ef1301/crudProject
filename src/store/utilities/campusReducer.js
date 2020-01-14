@@ -33,7 +33,7 @@ export const addCampusThunk = (campus) => (dispatch) => {
     dispatch(resolvedActionObject);    
 };
 
-export const singleCampusThunk = campus => dispatch => {
+export const singleCampusThunk = campus => (dispatch) => {
   let resolvedActionObject = singleCampusThunk(campus);
   dispatch(resolvedActionObject);
 };
@@ -70,7 +70,7 @@ function allCampusReducer(state = [], action) {
         case FETCH_SINGLE_CAMPUS:
             return action.id;
         case ADD_CAMPUS:
-            arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.campus]
+            arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.payload]
             return [...state, action.campus]
         case REMOVE_CAMPUS:
             return state.filter(campus=> campus.id !== action.id);

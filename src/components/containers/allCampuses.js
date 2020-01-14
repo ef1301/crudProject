@@ -8,9 +8,9 @@ class AllCampuses extends Component {
   constructor(props) {
     super(props);
   }
-    componentDidMount() {
-	this.props.fetchCampuses();
-    }
+  componentDidMount() {
+    	this.props.fetchCampuses();
+  }
 
     handleRemoveCampus = (id) => {
 	this.props.removeCampus(id);
@@ -18,7 +18,7 @@ class AllCampuses extends Component {
 
   display() {
     console.log(this.props);
-    if (this.props.campuses.length === 0) {
+    if (this.props.campuses == undefined) {
       return (
         <div className="container">
           <h2>All Campuses</h2>
@@ -33,13 +33,14 @@ class AllCampuses extends Component {
     {
         return (
 		<div className="container">
-		<AllCampusesView campuses={this.props}/>
+		<AllCampusesView campuses={this.props.campuses}/>
             </div>
         );
     }
   }
 
   render() {
+
     return (
       <div>
         <div className="home-container">
@@ -61,6 +62,12 @@ class AllCampuses extends Component {
   }
 }
 
+function mapState(state) {
+  console.log(state);
+  return {
+    campuses: state.campuses
+  }
+}
 
 function mapDispatch(dispatch) {
     return {
@@ -69,4 +76,4 @@ function mapDispatch(dispatch) {
     };
 }
 
-export default connect(null, mapDispatch)(AllCampuses);
+export default connect(mapState, mapDispatch)(AllCampuses);

@@ -5,10 +5,6 @@ import AllStudentsView from '../views/allStudentsView';
 import { fetchStudentsThunk, removeStudentThunk } from '../../thunks';
 
 class AllStudents extends Component {
-    constructor(props){
-	super(props);
-    }
-
     componentDidMount() {
 	this.props.fetchStudents();
     }
