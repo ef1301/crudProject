@@ -50,32 +50,30 @@ class AddStudentForm extends Component {
 		<div className="home-container">
                 <div className="header">
                 <h1>All Campuses</h1>
-
-                <div className="navbar">
-                <Link to="/">Home</Link>
-                <Link to="/AllCampuses">Campuses</Link>
-                <Link to="/AllStudents">Students</Link>
-                <Link to="/Student">Student</Link>
-                <Link to="/Campus">Campus</Link>
-                </div>
+                    <div className="navbar">
+                        <Link to="/">Home</Link>
+                        <Link to="/AllCampuses">Campuses</Link>
+                        <Link to="/AllStudents">Students</Link>
+                        <Link to="/Student">Student</Link>
+                        <Link to="/Campus">Campus</Link>
+                    </div>
                 </div>
                 </div>
 		
 		<div className="container">
 		<form onSubmit={this.handleSubmit}>
-		<h2>Add Student</h2>
-		
-                <label htmlFor="id">ID: </label>
-                <input required name="id" type="number" placeholder="Enter Student ID." onChange={this.handleChange}></input><br/>
-		
-                <label htmlFor="name">Name: </label>
-                <input required placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
-				
-                <button>Add Student</button>
+            <h2>Add Student</h2>
+            
+                    <label htmlFor="id">ID: </label>
+                    <input required name="id" type="number" placeholder="Enter Student ID." onChange={this.handleChange}></input><br/>
+            
+                    <label htmlFor="name">Name: </label>
+                    <input required placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
+                    <button>Add Student</button>
 		</form>
 		</div>
-
 	    </div>
+
         )
     }
 }
