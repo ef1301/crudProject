@@ -27,13 +27,16 @@ class AllStudents extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="container">
-          <AllStudentsView
+	return (
+		<div className="container">
+	        <div className="add">
+		<Link to="/AddStudent">Add Student</Link>
+		</div>
+		<AllStudentsView
             allStudents={this.props.allStudents}
             handleRemoveStudent={this.handleRemoveStudent}
-          />
-        </div>
+		/>
+		</div>
       );
     }
   }

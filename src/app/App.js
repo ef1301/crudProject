@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { AddCampus } from "../components/containers/AddCampus";
+import AddCampus from "../components/containers/AddCampus";
 import AllCampuses from "../components/containers/allCampuses";
 import AllStudents from "../components/containers/allStudents";
-import { AddStudent } from "../components/containers/AddStudent";
+import AddStudent from "../components/containers/AddStudent";
 
 import { SingleStudent } from "../components/views";
 import { SingleCampus } from "../components/views";
@@ -44,8 +44,8 @@ class App extends Component {
     const AllStudentsComponent = () => <AllStudents />;
     const singleStudentComponent = () => <SingleStudent />;
     const singleCampusComponent = () => <SingleCampus />;
-    // const addCampusComponent = () => <AddCampus />;
-    // const addStudentComponent = () => <AddStudent />;
+    const addCampusComponent = () => <AddCampus />;
+    const addStudentComponent = () => <AddStudent />;
 
     return (
       <Router>
@@ -55,22 +55,12 @@ class App extends Component {
           <Route exact path="/AllStudents" render={AllStudentsComponent} />
           <Route exact path="/Student/" render={singleStudentComponent} />
           <Route exact path="/Campus/" render={singleCampusComponent} />
-          {/* <Route exact path="/AddCampus/" render={addCampusComponent} />
-          <Route exact path="/AddStudent/" render={addStudentComponent} /> */}
+          <Route exact path="/AddCampus/" render={addCampusComponent} />
+          <Route exact path="/AddStudent/" render={addStudentComponent} />
         </Switch>
       </Router>
     );
   }
 }
-
-// function mapState(state) {
-//   return {};
-// }
-
-// //anything in this function will be accessible on the component's props object;
-// //in other words, you can now call this.props.incrementCoutner;
-// function mapDispatch(dispatch) {
-//   return {};
-// }
 
 export default App;
