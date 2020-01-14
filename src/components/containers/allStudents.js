@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import AllStudentsView from '../views/allStudentsView';
+import { fetchStudentsThunk, removeStudentThunk } from '../../thunks';
 
 class AllStudents extends Component {
     constructor(props){
 	super(props);
     }
 
-        display() {
-	console.log(this.props.allCampuses);
+    componentDidMount() {
+	this.props.fetchStudentsThunk();
+    }
+
+    handleRemoveStudent = (id) => {
+	this.props.removeStudent(id);
+    }
+
+    display() {
+	console.log(this.props.allStudents);
 	if(this.props.allStudents === undefined){
 	    return (
 		    <div className="container">
@@ -20,15 +31,11 @@ class AllStudents extends Component {
 	    );
 	}
 	else {
-	    let items = this.props.allCampuses.map( (element) => {
-		return (
-			<div key={element} className="container">
-			<h1>All Students</h1>
-
-			</div>
-		);
-	    });
-	    return items;
+	    return (
+		    <div className="container">
+		    <AllStudentsView allStudents={this.state.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
+		    </div>
+	    );
 	}
     }
     
@@ -47,26 +54,26 @@ class AllStudents extends Component {
 		<Link to="/Campus">Campus</Link>
 		</div>
 		
-		</div>
+	    </div>
 		</div>
 		{this.display()}
-		</div>
+	    </div>
 	);
     }
 }
 
 function mapState(state) {
-	return {
-		allStudents: state.allStudents
-	}
+    return {
+	allStudents: state.allStudents
+    }
 }
 
 function mapDispatch(dispatch) {
-	return {
-		fetchStudents: () => dispatch(fetchStudentsThunk()),
-		removeStudent: (id) => dispatch(removeStudentThunk(id))
-	}
+    return {
+	fetchStudents: () => dispatch(fetchStudentsThunk()),
+	removeStudent: (id) => dispatch(removeStudentThunk(id))
+    }
 }
 
-export default connect(mapState, mapDispatch)(AllStudentsContainer);
+export default connect(mapState, mapDispatch)(AllStudents);
 

@@ -5,12 +5,14 @@ import {connect} from 'react-redux';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
-import { AddCampus,  AllCampuses, AllStudents } from '../components/containers';
+import AddCampus from '../components/containers/AddCampus';
+import AllCampuses from '../components/containers/allCampuses';
+import AllStudents from '../components/containers/allStudents';
+import AddStudent from '../components/containers/AddStudent';
 
 import SingleStudent from '../components/views';
 import SingleCampus from '../components/views';
 import Home from '../components/views';
-import AddStudent from '../components/containers';
 
 
 

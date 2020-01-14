@@ -1,7 +1,6 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCampusThunk } from '../utilities/reducers/campusReducer'
+import { addCampusThunk } from '../../store/utilities/campusReducer'
 import { Link } from "react-router-dom";
 
 class AddCampus extends Component 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addStudentThunk } from './reducers/studentReducer'
+import { addStudentThunk } from '../../store/utilities/studentReducer'
 import { Link } from "react-router-dom";
 
 // This might be more appropriate as a file in another directory titled "forms";
