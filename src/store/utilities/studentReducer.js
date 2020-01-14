@@ -60,8 +60,6 @@ let arrayOfStudentsFromAPI = [
 
 export let fetchStudentsThunk = () => (dispatch) => {
     
-   
-
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
 
 }

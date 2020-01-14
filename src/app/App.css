@@ -84,6 +84,27 @@ form {
 .container a:hover{
 }
 
+.all-card-holder {
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.all-card-holder a {
+}
+
+#all-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 2% 2%;
+    background-color: lightyellow;
+    border: medium solid gold;
+    width: 20%;
+    height: 30%;
+}
+
 form {
     text-align: left;
     margin: 1% 2%;

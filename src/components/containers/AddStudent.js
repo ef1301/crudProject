@@ -14,9 +14,9 @@ class AddStudentForm extends Component {
         this.state = {
             id: 0,
             name: "",
-	    /*email: "",
+	    email: "",
 	    imageURL: "",
-	    gpa: 0*/
+	    gpa: 0
         }
     }
 

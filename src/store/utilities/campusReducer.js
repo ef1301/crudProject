@@ -43,25 +43,33 @@ const FETCH_SINGLE_CAMPUS = 'GET_SINGLE_CAMPUS'
 const ADD_CAMPUS = 'ADD_CAMPUS'
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS'
 
-const fetchCampuses = (campuses) => ({
-    type:FETCH_CAMPUSES,
-    campuses
-})
+function fetchCampuses(campuses){
+    return {
+	type:FETCH_CAMPUSES,
+	campuses
+    }
+}
 
-const fetchSingleCampus = (id) => ({
-    type:FETCH_SINGLE_CAMPUS,
-    id
-})
+function fetchSingleCampus(id){
+    return {
+	type:FETCH_SINGLE_CAMPUS,
+	id
+    }
+}
 
-const addCampus = (campus) => ({
-    type:ADD_CAMPUS,
-    campus
-})
+function addCampus(campus){
+    return {
+	type:ADD_CAMPUS,
+	campus
+    }
+}
 
-const removeCampus = (id) => ({
-    type:REMOVE_CAMPUS,
-    id
-})
+function removeCampus(id){
+    return {
+	type:REMOVE_CAMPUS,
+	id
+    }
+}
 
 function allCampusReducer(state = [], action) {
     switch(action.type){

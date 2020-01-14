@@ -17,24 +17,13 @@ class AddCampus extends Component
 
     }
 
-    handleChange = (event) => 
-    {
-        
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
     
-    handleSubmit = (event) => 
-    {
+    handleSubmit = (event) => {
         event.preventDefault();
-        const campusName = event.target.name.value;
-        const campusAddress = event.target.address.value;
-        const newCampus = 
-        {
-            name: campusName,
-            address: campusAddress
-        }
-        console.log(newCampus);
-        this.props.writeCampus(newCampus)
-        this.props.history.push('/campuses')
+	this.props.addCampus(this.state);
 
     }
 
@@ -83,7 +72,7 @@ class AddCampus extends Component
 // async -> Promise based, expects a result in the future
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        writeCampus: async (campus) => dispatch(addCampusThunk(campus)),
+        addCampus: (campus) => dispatch(addCampusThunk(campus)),
     }
 }
 

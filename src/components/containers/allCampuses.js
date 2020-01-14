@@ -20,7 +20,7 @@ class AllCampuses extends Component {
     console.log(this.props);
     if (this.props.campuses == undefined) {
       return (
-        <div className="container">
+        <div className='all-card-holder'>
           <h2>All Campuses</h2>
           <p>There are no campuses registered in the database.</p>
           <div  className="add">
@@ -32,7 +32,11 @@ class AllCampuses extends Component {
     else 
     {
         return (
-		<div>
+	        <div className='all-card-holder'>
+		<div  className="add">
+		<Link to="/AddCampus">Add Campus</Link>
+		</div>
+
 		<AllCampusesView campuses={this.props.campuses} handleRemoveCampus={this.handleRemoveCampus}/>
             </div>
         );
