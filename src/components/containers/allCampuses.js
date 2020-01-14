@@ -1,41 +1,36 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import AllCampusesView from '../views/AllCampusesView';
-import { fetchCampusesThunk, removeCampusThunk } from '../../thunks';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import AllCampusesView from "../views/AllCampusesView";
+import { connect } from "react-redux";
+import { fetchCampusesThunk, removeCampusThunk } from "../../thunks";
 
 class AllCampuses extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    this.props.fetchCampuses();
   }
-    componentDidMount() {
-	this.props.fetchCampuses();
-    }
 
-    handleRemoveCampus = (id) => {
-	this.props.removeCampus(id);
-    }
+  handleRemoveCampus = id => {
+    this.props.removeCampus(id);
+  };
 
   display() {
     console.log(this.props.allCampuses);
-    if (this.props.allCampuses == undefined) {
+    if (this.props.allCampuses === undefined) {
       return (
         <div className="container">
           <h2>All Campuses</h2>
           <p>There are no campuses registered in the database.</p>
-          <div  className="add">
-          <Link to="/AddCampus">Add Campus</Link>
-              </div>
-	  
+          <div className="add">
+            <Link to="/AddCampus">Add Campus</Link>
+          </div>
         </div>
       );
-    } 
-    else 
-    {
-        return (
-		<div className="container">
-		<AllCampusesView allCampuses={this.props}/>
-            </div>
-        );
+    } else {
+      return (
+        <div className="container">
+          <AllCampusesView allCampuses={this.props} />
+        </div>
+      );
     }
   }
 
@@ -62,16 +57,16 @@ class AllCampuses extends Component {
 }
 
 function mapState(state) {
-    return {
-	allCampuses: state.allCampuses
-    }
+  return {
+    allCampuses: state.allCampuses
+  };
 }
 
 function mapDispatch(dispatch) {
-    return {
-	fetchCampuses: () => dispatch(fetchCampusesThunk()),
-	removeCampus: (id) => dispatch(removeCampusThunk(id))
-    };
+  return {
+    fetchCampuses: () => dispatch(fetchCampusesThunk()),
+    removeCampus: id => dispatch(removeCampusThunk(id))
+  };
 }
 
-export default AllCampuses;
+export default connect(mapState, mapDispatch)(AllCampuses);
