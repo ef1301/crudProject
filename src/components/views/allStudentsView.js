@@ -1,4 +1,6 @@
 import React from "react";
+import EditStudent from "../containers/EditStudent";
+import { Link } from "react-router-dom";
 
 function AllStudentsView(props) {
     //console.log("propsss", props.allStudents);
@@ -10,7 +12,11 @@ function AllStudentsView(props) {
 		    {student.name} <br/>
 		    <u>GPA: </u>{student.gpa} <br/>
 		    <img src={student.imageURL} alt={student.name}/>
-		    <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button></div>
+                    <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button>
+                    <div>
+                    <Link to="/EditStudent">Edit Student</Link>
+                    </div>
+		    </div>
             ))
             }
         </div>
