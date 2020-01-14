@@ -32,8 +32,8 @@ class AllCampuses extends Component {
     else 
     {
         return (
-		<div className="container">
-		<AllCampusesView campuses={this.props.campuses}/>
+		<div>
+		<AllCampusesView campuses={this.props.campuses} handleRemoveCampus={this.handleRemoveCampus}/>
             </div>
         );
     }

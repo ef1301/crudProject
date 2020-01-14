@@ -8,18 +8,6 @@ import { Link } from "react-router-dom";
 // Not all components benefit from being separated out into Smart Containers and Presentational Components;
 // Forms are a good example of something that can live in one sole component like so;
 
-
-/*
-		<label htmlFor="email">Email: </label>
-                <input required placeholder="Enter Email Address" name="email" type="email" onChange={this.handleChange}></input><br/>
-		
-		<label htmlFor="imageURL">ImageURL: </label>
-                <input placeholder="Enter ImageURL" name="imageURL" type="text" onChange={this.handleChange}></input><br/>
-		
-		<label htmlFor="gpa">GPA: </label>
-                <input required placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
-*/
-
 class AddStudentForm extends Component {
     constructor() {
         super();
@@ -73,7 +61,16 @@ class AddStudentForm extends Component {
 		
                 <label htmlFor="name">Name: </label>
                 <input required placeholder="Enter First & Last Name" name="name" type="text" onChange={this.handleChange}></input><br/>
-				
+		
+		<label htmlFor="email">Email: </label>
+                <input required placeholder="Enter Email Address" name="email" type="email" onChange={this.handleChange}></input><br/>
+		
+		<label htmlFor="imageURL">ImageURL: </label>
+                <input placeholder="Enter ImageURL" name="imageURL" type="text" onChange={this.handleChange}></input><br/>
+		
+		<label htmlFor="gpa">GPA: </label>
+                <input required placeholder="Enter GPA" name="gpa" type="number" step="0.01" min="0.0" max="4.0" onChange={this.handleChange}></input><br/>
+
                 <button>Add Student</button>
 		</form>
 		</div>

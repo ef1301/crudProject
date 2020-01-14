@@ -10,7 +10,7 @@ const arrayOfCampusesFromAPI = [
         "description": "2018-12-06T19:58:21.314Z"
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Cornell University",
         "numStudents": 2,
         "students": [],
@@ -24,7 +24,7 @@ export const fetchCampusesThunk = () => (dispatch) => {
   
 }
 export const removeCampusThunk = (id) => (dispatch) => {
-  let resolvedActionObject = removeCampusThunk(id);
+  let resolvedActionObject = removeCampus(id);
   dispatch(resolvedActionObject);
 };
 
