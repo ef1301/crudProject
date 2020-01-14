@@ -9,7 +9,7 @@ import ThunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 //REDUCER FUNCTIONS;
-import * from "../reducers";
+import rootReducer from './store'
 
 
 //this variable will hold the object that will contain all of youre reducers
