@@ -18,8 +18,8 @@ class AllStudents extends Component {
     }
 
     display() {
-	console.log(this.props.allStudents);
-	if(this.props.allStudents === undefined){
+	console.log(this.props.students);
+	if(this.props.students === undefined){
 	    return (
 		    <div className="container">
 		    <h2>All Students</h2>
@@ -33,7 +33,7 @@ class AllStudents extends Component {
 	else {
 	    return (
 		    <div className="container">
-		    <AllStudentsView allStudents={this.state.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
+		    <AllStudentsView allStudents={this.props.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
 		    </div>
 	    );
 	}
@@ -63,8 +63,9 @@ class AllStudents extends Component {
 }
 
 function mapState(state) {
+    console.log(state);
     return {
-	allStudents: state.allStudents
+	allStudents: state.students
     }
 }
 

@@ -61,4 +61,17 @@ class AllCampuses extends Component {
   }
 }
 
+function mapState(state) {
+    return {
+	allCampuses: state.allCampuses
+    }
+}
+
+function mapDispatch(dispatch) {
+    return {
+	fetchCampuses: () => dispatch(fetchCampusesThunk()),
+	removeCampus: (id) => dispatch(removeCampusThunk(id))
+    };
+}
+
 export default AllCampuses;
