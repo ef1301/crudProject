@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { singleCampusThunk } from "../utilities/reducers/campusReducer";
+import { singleCampusThunk } from "../../thunks/index";
 //import { getSingleCampus } from "../utilities/reducers/campusReducer";
 //Show Campus with No Students set
 class SingleCampus extends Component {

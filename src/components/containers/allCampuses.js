@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AllCampusesView from '../views/AllCampusesView';
 import { fetchCampusesThunk, removeCampusThunk } from '../../thunks';
+import { connect } from "react-redux";
 
 class AllCampuses extends Component {
   constructor(props) {
@@ -74,4 +75,4 @@ function mapDispatch(dispatch) {
     };
 }
 
-export default AllCampuses;
+export default connect(mapState, mapDispatch)(AllCampuses);

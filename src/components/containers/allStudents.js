@@ -10,15 +10,15 @@ class AllStudents extends Component {
     }
 
     componentDidMount() {
-	this.props.fetchStudentsThunk();
+	this.props.fetchStudents();
     }
 
     handleRemoveStudent = (id) => {
 	this.props.removeStudent(id);
     }
 
-    display() {
-	console.log(this.props.students);
+    display = () => {
+	// console.log(this.props.students);
 	if(this.props.students === undefined){
 	    return (
 		    <div className="container">
