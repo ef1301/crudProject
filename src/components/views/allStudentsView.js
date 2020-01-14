@@ -1,7 +1,7 @@
 import React from "react";
 
 function AllStudentsView(props) {
-    console.log("propsss", props);
+    console.log("propsss", props.allStudents);
     return (
         <div>
             <h1>ALLSTUDENTSVIEW IS RENDERING HERE</h1>

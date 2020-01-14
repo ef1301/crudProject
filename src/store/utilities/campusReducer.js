@@ -1,24 +1,25 @@
+
+const arrayOfCampusesFromAPI = [
+    {
+        "id": 4,
+        "name": "Hunter College",
+        "numStudents": 2,
+        "students": [],
+        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "address": "2018-12-06T19:58:21.314Z",
+        "description": "2018-12-06T19:58:21.314Z"
+    },
+    {
+        "id": 4,
+        "name": "Cornell University",
+        "numStudents": 2,
+        "students": [],
+        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "address": "2018-12-06T19:58:21.314Z",
+        "description": "2018-12-06T19:58:21.314Z"
+    }
+]
 export const fetchCampusesThunk = () => (dispatch) => {
-    const arrayOfCampusesFromAPI = [
-        {
-            "id": 4,
-            "name": "Hunter College",
-            "numStudents": 2,
-	    "students": [],
-            "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
-            "address": "2018-12-06T19:58:21.314Z",
-            "description": "2018-12-06T19:58:21.314Z"
-        },
-        {
-            "id": 4,
-            "name": "Cornell University",
-            "numStudents": 2,
-	    "students": [],
-            "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
-            "address": "2018-12-06T19:58:21.314Z",
-            "description": "2018-12-06T19:58:21.314Z"
-        }
-    ]
     dispatch(fetchCampuses(arrayOfCampusesFromAPI));
   
 }
@@ -69,6 +70,7 @@ function allCampusReducer(state = [], action) {
         case FETCH_SINGLE_CAMPUS:
             return action.id;
         case ADD_CAMPUS:
+            arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.campus]
             return [...state, action.campus]
         case REMOVE_CAMPUS:
             return state.filter(campus=> campus.id !== action.id);

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addStudentThunk } from '../../store/utilities/studentReducer'
 import { Link } from "react-router-dom";
 
+
 // This might be more appropriate as a file in another directory titled "forms";
 // Not all components benefit from being separated out into Smart Containers and Presentational Components;
 // Forms are a good example of something that can live in one sole component like so;
@@ -31,13 +32,15 @@ class AddStudentForm extends Component {
         }
     }
 
-    handleChange = (event) => {
+    handleChange = (event) => 
+    {
         this.setState({ [event.target.name]: event.target.value });
+        console.log(this.state.name);
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.addStudentThunk(this.state);
+        this.props.addStudent(this.state);
     }
 
     render() {
@@ -80,9 +83,11 @@ class AddStudentForm extends Component {
     }
 }
 
+
+
 function mapDispatch(dispatch) {
     return {
-        addStudentThunk: (studentToAdd) => dispatch(addStudentThunk(studentToAdd))
+        addStudent: (studentToAdd) => dispatch(addStudentThunk(studentToAdd))
     }
 }
 

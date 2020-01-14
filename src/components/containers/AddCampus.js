@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import { addCampusThunk } from '../../store/utilities/campusReducer'
 import { Link } from "react-router-dom";
 
+
 class AddCampus extends Component 
 {
     constructor() {
         super();
-	this.state = {
+	    this.state = {
 	    name: '',
 	    imageURL: '',
 	    address: '',
@@ -16,10 +17,13 @@ class AddCampus extends Component
 
     }
 
-    handleChange = (event) => {
+    handleChange = (event) => 
+    {
+        
     }
     
-    handleSubmit = (event) => {
+    handleSubmit = (event) => 
+    {
         event.preventDefault();
         const campusName = event.target.name.value;
         const campusAddress = event.target.address.value;

@@ -19,21 +19,28 @@ class AllStudents extends Component {
 
     display = () => {
 	// console.log(this.props.students);
-	if(this.props.students === undefined){
+	if(this.props.allStudents.length === 0){
 	    return (
 		    <div className="container">
 		    <h2>All Students</h2>
 		    <p>There are no students registered in the database.</p>
 		    <div  className="add">
-		    <Link to="/AddStudent">Add Student</Link>
+		    
 		    </div>
+
 		    </div>
 	    );
 	}
 	else {
 	    return (
 		    <div className="container">
+				<div className="add">
+					<Link to="/AddStudent">Add Student</Link>
+				</div>
 		    <AllStudentsView allStudents={this.props.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
+				<div>
+				{this.props.student}
+				</div>
 		    </div>
 	    );
 	}
