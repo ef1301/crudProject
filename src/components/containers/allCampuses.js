@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import AddCampus from './AddCampus'
+import { AllCampusesView } from '../views';
+import { fetchCampusesThunk, removeCampusThunk } from '../../thunks';
 
 class AllCampuses extends Component {
   constructor(props) {
