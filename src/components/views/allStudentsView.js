@@ -11,10 +11,11 @@ function AllStudentsView(props) {
                     <div id="all-card" key={student.id}>
 		    {student.name} <br/>
 		    <u>GPA: </u>{student.gpa} <br/>
-		    <img src={student.imageURL} alt={student.name}/>
-                    <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button>
-                    <div>
-                    <Link to="/EditStudent">Edit Student</Link>
+		    <img src={student.imageURL} alt={student.name}/> <br/>
+
+		    <div className="add">
+		    <Link to="/EditStudent">Edit Student</Link>
+                    <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button><br/>
                     </div>
 		    </div>
             ))
