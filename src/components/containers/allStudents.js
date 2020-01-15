@@ -30,7 +30,7 @@ class AllStudents extends Component {
 	}
 	else {
 	    return (
-		    <div>
+		    <div className='all-card-holder'>
 		    <div className="add">
 		    <Link to="/AddStudent">Add Student</Link>
 		    </div>

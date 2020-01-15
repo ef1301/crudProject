@@ -25,7 +25,6 @@ class EditCampusForm extends Component {
         this.props.addCampus(this.state);
 
     }
-
     render() {
         return (
             <div>

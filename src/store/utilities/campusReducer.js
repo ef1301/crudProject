@@ -1,5 +1,11 @@
+const EDIT_CAMPUS = 'EDIT_CAMPUS';
+const FETCH_CURRENT_CAMPUS = 'FETCH_CURRENT_CAMPUS'
+const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
+const ADD_CAMPUS = 'ADD_CAMPUS'
+const REMOVE_CAMPUS = 'REMOVE_CAMPUS'
 
 const arrayOfCampusesFromAPI = [
+   
     {
         "id": 4,
         "name": "Hunter College",
@@ -33,15 +39,17 @@ export const addCampusThunk = (campus) => (dispatch) => {
     dispatch(resolvedActionObject);    
 };
 
-export const singleCampusThunk = campus => (dispatch) => {
-  let resolvedActionObject = singleCampusThunk(campus);
+export const currentCampusThunk = campus => (dispatch) => {
+  let resolvedActionObject = currentCampusThunk(campus);
   dispatch(resolvedActionObject);
+
 };
 
-const FETCH_CAMPUSES = 'FETCH_CAMPUSES';
-const FETCH_SINGLE_CAMPUS = 'GET_SINGLE_CAMPUS'
-const ADD_CAMPUS = 'ADD_CAMPUS'
-const REMOVE_CAMPUS = 'REMOVE_CAMPUS'
+export const editCampusThunk = (campus) => (dispatch) => {
+    let resolvedActionObject = currentCampusThunk(campus);
+    dispatch(editCampus(campus));
+}
+
 
 function fetchCampuses(campuses){
     return {
@@ -50,9 +58,9 @@ function fetchCampuses(campuses){
     }
 }
 
-function fetchSingleCampus(id){
+function fetchCurrentCampus(id){
     return {
-	type:FETCH_SINGLE_CAMPUS,
+	type:FETCH_CURRENT_CAMPUS,
 	id
     }
 }
@@ -71,17 +79,26 @@ function removeCampus(id){
     }
 }
 
+function editCampus(campus){
+    return {
+        type: EDIT_CAMPUS,
+        campus
+    }
+}
+
 function allCampusReducer(state = [], action) {
     switch(action.type){
         case FETCH_CAMPUSES:
             return action.campuses;
-        case FETCH_SINGLE_CAMPUS:
+        case FETCH_CURRENT_CAMPUS:
             return action.id;
         case ADD_CAMPUS:
             arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.payload]
             return [...state, action.campus]
         case REMOVE_CAMPUS:
             return state.filter(campus=> campus.id !== action.id);
+        case EDIT_CAMPUS:
+            return action.payload;
         default:    
             return state
     }

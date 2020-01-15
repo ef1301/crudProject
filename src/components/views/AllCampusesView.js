@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 function AllCampusesView(props) {
     return (
-        <div>
+            <div>
+	    <h2><u>Currently Registered Campuses</u></h2>
             {props.campuses.map(campus => (
                     <div id="all-card" key={campus.id}>{campus.name}
 		    <button onClick={() => props.handleRemoveCampus(campus.id)}>Delete Campus</button>
