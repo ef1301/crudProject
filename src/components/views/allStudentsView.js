@@ -9,7 +9,7 @@ function AllStudentsView(props) {
             {props.allStudents.map(student => (
 		
                     <div id="all-card" key={student.id}>
-		    {student.name} <br/>
+		    <Link to={`/AllStudents/${student.id}`}>{student.name}</Link>
 		    <u>GPA: </u>{student.gpa} <br/>
 		    <img src={student.imageURL} alt={student.name}/> <br/>
 

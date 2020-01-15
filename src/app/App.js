@@ -46,8 +46,8 @@ class App extends Component{
 	const HomeComponent = () => (<Home/>);
 	const AllCampusesComponent = () => (<AllCampuses/>);
 	const AllStudentsComponent = () => (<AllStudents/>);
-	const singleStudentComponent = () => (<SingleStudent/>);
-	const singleCampusComponent = () => (<SingleCampus/>);
+	//const singleStudentComponent = () => (<SingleStudent/>);
+	//const singleCampusComponent = () => (<SingleCampus/>);
 	const addCampusComponent = () => (<AddCampus/>);
 	const addStudentComponent = () => (<AddStudent />);
 	const editStudentComponent = () => (<EditStudent />);
@@ -61,10 +61,12 @@ class App extends Component{
 		<Route exact path="/" render={HomeComponent}/>
 		<Route exact path="/AllCampuses" render={AllCampusesComponent}/>
 		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
-		<Route exact path="/Student/" render={singleStudentComponent}/>
 
 	    {this.props.campuses.map( (campus) => {
 		return <Route exact path={`/AllCampuses/:campusId`} render={ (props) => <SingleCampus {...props} campus={campus.id} />}/>})}
+
+	    {this.props.allStudents.map( (student) => {
+	    	return <Route exact path={`/AllStudents/:studentId`} render={ (props) => <SingleStudent {...props} student={student.id} />} />})}
 	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />

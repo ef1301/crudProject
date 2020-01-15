@@ -31,8 +31,7 @@ class SingleCampus extends Component {
                 <div className="navbar">
                   <Link to="/">Home</Link>
                   <Link to="/AllCampuses">Campuses</Link>
-                  <Link to="/Student">Student</Link>
-                  <Link to="/Campus">Campus</Link>
+                  <Link to="/AllStudents">Student</Link>
                 </div>
               </div>
             </div>
