@@ -6,7 +6,14 @@ import { connect } from "react-redux";
 
 class AllCampuses extends Component {
   constructor(props) {
-    super(props);
+      super(props);
+      /*this.state = {
+	  name: '',
+	  imageURL: '',
+	  address: '',
+	  description: ''
+      };*/
+
   }
   componentDidMount() {
     	this.props.fetchCampuses();

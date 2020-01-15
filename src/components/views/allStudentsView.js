@@ -7,6 +7,7 @@ function AllStudentsView(props) {
             <div>
 	    <h2><u>Currently Registered Students</u></h2>
             {props.allStudents.map(student => (
+		
                     <div id="all-card" key={student.id}>
 		    {student.name} <br/>
 		    <u>GPA: </u>{student.gpa} <br/>
@@ -17,6 +18,7 @@ function AllStudentsView(props) {
                     <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button><br/>
                     </div>
 		    </div>
+		    
             ))
             }
         </div>

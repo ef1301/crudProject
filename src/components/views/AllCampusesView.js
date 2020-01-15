@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function AllCampusesView(props) {
     return (
+	    <Link to=`/AllCampuses/${campus.id}`>
             <div>
 	    <h2><u>Currently Registered Campuses</u></h2>
             {props.campuses.map(campus => (
@@ -13,6 +14,7 @@ function AllCampusesView(props) {
             ))
             }
         </div>
+	    </Link>
     )
 }
 export default AllCampusesView;

@@ -59,7 +59,11 @@ class App extends Component{
 		<Route exact path="/AllCampuses" render={AllCampusesComponent}/>
 		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
 		<Route exact path="/Student/" render={singleStudentComponent}/>
-		<Route exact path="/Campus/" render={singleCampusComponent}/>
+
+	    this.state.campuses.map( item =>
+				     <Route exact path="/AllCampus/${item.id}" render={singleCampusComponent}/>)
+				     
+	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
 		<Route exact path="/EditStudent/" render={editStudentComponent} />
@@ -72,6 +76,8 @@ class App extends Component{
 
 function mapState(state) {
     return {
+	allStudents: state.students,
+	campuses: state.campuses
     };
 }
 
@@ -83,4 +89,4 @@ function mapDispatch(dispatch) {
     }
 }
 
-export default App;
+export default connect(mapState, null)(App);
