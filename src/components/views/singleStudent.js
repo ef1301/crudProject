@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk, singleStudentThunk  } from '../../thunks';
+import { fetchStudentsThunk, removeStudentThunk, addStudentThunk, currentStudentThunk  } from '../../thunks';
 //import { getSingleStudent } from '../utilities/reducers/studentReducer'
 
 
@@ -64,7 +64,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => 
 {
     return {
-        fetchStudent: () => dispatch(singleStudentThunk(ownProps.match.params.id))
+        fetchStudent: () => dispatch(currentStudentThunk(ownProps.match.params.id))
     }
 }
 

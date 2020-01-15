@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCampusThunk, singleCampusThunk } from '../../store/utilities/campusReducer'
+import { addCampusThunk, currentCampusThunk } from '../../store/utilities/campusReducer'
 import { Link } from "react-router-dom";
 
 
@@ -71,7 +71,7 @@ class EditCampusForm extends Component {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         addCampus: (campus) => dispatch(addCampusThunk(campus)),
-        fetchSingleCampus: (id) => dispatch(singleCampusThunk(id))
+        fetchSingleCampus: (id) => dispatch(currentCampusThunk(id))
     }
 }
 

@@ -118,7 +118,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
     return {
         fetchStudents: () => dispatch(fetchStudentsThunk()),
-        fetchCurrentStudent: (student) => dispatch(currentStudentThunk(student)),
+        fetchCurrentStudent: (id) => dispatch(currentStudentThunk(id)),
         editStudent: (student) => dispatch(editStudentThunk(student))
     }
 }

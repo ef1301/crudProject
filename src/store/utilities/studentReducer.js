@@ -3,7 +3,7 @@ const FETCH_STUDENTS = "FETCH_STUDENTS";
 const FETCH_CURRENT_STUDENT = "FETCH_CURRENT_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
-const EDIT_CAMPUS = "EDIT_CAMPUS";
+const EDIT_STUDENT = "EDIT_STUDENT";
 const FETCH_CURRENT_CAMPUS = "FETCH_CURRENT_CAMPUS";
 
 // THUNK CREATOR;
@@ -86,12 +86,6 @@ export const currentStudentThunk = (id) => (dispatch) => {
     let resolvedActionObject = fetchCurrentStudent(id);
     dispatch(resolvedActionObject);
 }
-
-export const currentStudentThunk = student => (dispatch) => {
-    let resolvedActionObject = currentStudentThunk(student);
-    dispatch(resolvedActionObject);
-
-};
 
 export const editStudentThunk = (student) => (dispatch) => {
     let resolvedActionObject = currentStudentThunk(student);
