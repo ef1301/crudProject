@@ -1,3 +1,11 @@
+//Action Types to be dispatched later
+const FETCH_STUDENTS = "FETCH_STUDENTS";
+const FETCH_CURRENT_STUDENT = "FETCH_CURRENT_STUDENT";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
+const ADD_STUDENT = "ADD_STUDENT";
+const EDIT_CAMPUS = "EDIT_CAMPUS";
+const FETCH_CURRENT_CAMPUS = "FETCH_CURRENT_CAMPUS";
+
 // THUNK CREATOR;
 // Below we have dummyData
 let arrayOfStudentsFromAPI = [
@@ -74,17 +82,22 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
-export const singleStudentThunk = (id) => (dispatch) => {
-    let resolvedActionObject = fetchSingleStudent(id);
+export const currentStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = fetchCurrentStudent(id);
     dispatch(resolvedActionObject);
 }
 
+export const currentStudentThunk = student => (dispatch) => {
+    let resolvedActionObject = currentStudentThunk(student);
+    dispatch(resolvedActionObject);
 
-//Action Types to be dispatched later
-const FETCH_STUDENTS = "FETCH_STUDENTS";
-const FETCH_SINGLE_STUDENT = "FETCH_SINGLE_STUDENT";
-const REMOVE_STUDENT = "REMOVE_STUDENT";
-const ADD_STUDENT = "ADD_STUDENT";
+};
+
+export const editStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = currentStudentThunk(student);
+    dispatch(editStudent(student));
+}
+
 
 // ACTION CREATOR
 function fetchStudents(students) {
@@ -94,9 +107,9 @@ function fetchStudents(students) {
     }
 }
 
-function fetchSingleStudent(id) {
+function fetchCurrentStudent(id) {
   return {
-    type: FETCH_SINGLE_STUDENT,
+    type: FETCH_CURRENT_STUDENT,
     payload: id
   }
 }
@@ -115,12 +128,19 @@ function addStudent(student) {
     }
 }
 
+function editStudent(student) {
+    return {
+        type: EDIT_STUDENT,
+        student
+    }
+}
+
 // REDUCER FUNCTION;
 function allStudentsReducer(state = [], action) {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
-        case FETCH_SINGLE_STUDENT:
+        case FETCH_CURRENT_STUDENT:
             return action.payload;
         case REMOVE_STUDENT:
             //action.payload is the array of students, only return when you get a match
@@ -128,6 +148,8 @@ function allStudentsReducer(state = [], action) {
         case ADD_STUDENT:
             arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload]
             return [...state, action.payload]
+        case EDIT_STUDENT:
+            return action.payload;    
         default:
             return state;
     }
