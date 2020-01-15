@@ -18,12 +18,12 @@ class AllCampuses extends Component {
 
   display() {
     console.log(this.props);
-    if (this.props.campuses == undefined) {
+    if (this.props.campuses.length == 0) {
       return (
-        <div className='all-card-holder'>
+        <div className='container'>
           <h2>All Campuses</h2>
-          <p>There are no campuses registered in the database.</p>
-          <div  className="add">
+          <p>There are no campuses registered in the database.</p><br/>
+          <div  className="add-card">
           <Link to="/AddCampus">Add Campus</Link>
               </div>
         </div>
@@ -33,7 +33,7 @@ class AllCampuses extends Component {
     {
         return (
 	        <div className='all-card-holder'>
-		<div  className="add">
+		<div  className="add-card">
 		<Link to="/AddCampus">Add Campus</Link>
 		</div>
 

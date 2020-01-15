@@ -47,7 +47,7 @@ form {
 
 }
 
-.add a {
+.add a, button {
     margin-top: 1%;
     margin-bottom: 1%;
     padding: 1%;
@@ -60,7 +60,7 @@ form {
     padding: 1%;
 }
 
-.add a:hover {
+.add a:hover, button:hover {
     color: navy;
     background-color: gold;
     border: medium solid navy;
@@ -100,11 +100,31 @@ form {
     color: white;
 }
 
-.all-card-holder .add {
+.all-card-holder .add-card {
     text-align: right;
     margin-top: .4%;
     margin-right: 2%;
     margin-bottom: 1%;
+}
+.add-card a {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: navy;
+    border: medium solid gold;
+    font-size: 1.05em;
+    padding: 1%;
+}
+
+.add-card a:hover {
+    color: navy;
+    background-color: gold;
+    border: medium solid navy;
+    font-size: 1.05em;
+    padding: 1%;
 }
 
 #all-card {
@@ -118,6 +138,15 @@ form {
     border: medium solid gold;
     width: 10%;
     height: 30%;
+}
+form button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: navy;
+    border: medium solid gold;
+    font-size: 1.05em;
+    padding: 1%;   
 }
 
 
