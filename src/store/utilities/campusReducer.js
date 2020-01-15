@@ -35,18 +35,18 @@ export const removeCampusThunk = (id) => (dispatch) => {
 };
 
 export const addCampusThunk = (campus) => (dispatch) => {
-    let resolvedActionObject = addCampusThunk(campus);
+    let resolvedActionObject = addCampus(campus);
     dispatch(resolvedActionObject);    
 };
 
-export const currentCampusThunk = campus => (dispatch) => {
-  let resolvedActionObject = currentCampusThunk(campus);
+export const currentCampusThunk = id => (dispatch) => {
+  let resolvedActionObject = fetchCurrentCampus(id);
   dispatch(resolvedActionObject);
 
 };
 
 export const editCampusThunk = (campus) => (dispatch) => {
-    let resolvedActionObject = currentCampusThunk(campus);
+    let resolvedActionObject = editCampus(campus);
     dispatch(editCampus(campus));
 }
 
@@ -91,7 +91,7 @@ function allCampusReducer(state = [], action) {
         case FETCH_CAMPUSES:
             return action.campuses;
         case FETCH_CURRENT_CAMPUS:
-            return action.id;
+            return state.filter(campus => campus.id === action.id);
         case ADD_CAMPUS:
             arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.payload]
             return [...state, action.campus]

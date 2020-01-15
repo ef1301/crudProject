@@ -21,25 +21,26 @@ import Home from '../components/views/Home';
 class App extends Component{
     constructor() {
 	super();
-	this.state = {
-	    allStudents: [],
-	    allCampuses: [],
-	    singleStudent: {
-		firstName: '',
-		lastName: '',
-		email:'',
-		imageURL: '',
-		gpa: 0
-	    },
-	    singleCampus: {
-		name: '',
-		numStudents: 0,
-		imageURL: '',
-		address: '',
-		description: ''
-	    }
+
+	// this.state = {
+	//     allStudents: [],
+	//     allCampuses: [],
+	//     singleStudent: {
+	// 	firstName: '',
+	// 	lastName: '',
+	// 	email:'',
+	// 	imageURL: '',
+	// 	gpa: 0
+	//     },
+	//     singleCampus: {
+	// 	name: '',
+	// 	numStudents: 0,
+	// 	imageURL: '',
+	// 	address: '',
+	// 	description: ''
+	//     }
 	}
-    }
+    
     
     render() {
 	const HomeComponent = () => (<Home/>);
@@ -62,8 +63,8 @@ class App extends Component{
 		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
 		<Route exact path="/Student/" render={singleStudentComponent}/>
 
-	    {this.props.campuses.map( (campus) => (
-		<Route exact path=`/AllCampus/$(campus.id)` render={<SingleCampus />}))}
+	    {this.props.campuses.map( (campus) => {
+		return <Route exact path={`/AllCampuses/:campusId`} render={ (props) => <SingleCampus {...props} campus={campus.id} />}/>})}
 	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
