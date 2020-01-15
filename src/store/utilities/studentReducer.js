@@ -135,7 +135,7 @@ function allStudentsReducer(state = [], action) {
         case FETCH_STUDENTS:
             return action.payload;
         case FETCH_CURRENT_STUDENT:
-            return action.payload;
+            return state.filter(student => student.id === action.payload);
         case REMOVE_STUDENT:
             //action.payload is the array of students, only return when you get a match
             return state.filter(student => student.id !== action.payload);

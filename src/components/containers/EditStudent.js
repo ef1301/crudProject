@@ -19,9 +19,9 @@ class EditStudent extends Component {
             gpa: 0
         }
     }
-    async componentDidMount() {
-        await this.props.fetchStudents();
-        await this.props.fetchCurrentStudent(this.props.student);
+    componentDidMount() {
+        this.props.fetchStudents();
+        this.props.fetchCurrentStudent(this.props.student);
 
         const { id, name, email, imageUrl, gpa } = this.props.student;
         this.setState(
