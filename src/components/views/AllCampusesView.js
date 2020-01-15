@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function AllCampusesView(props) {
     return (
-	    <Link to='/AllCampuses/${campus.id}'>
+	    <Link to='/Campus'>
 	    <h2><u>Currently Registered Campuses</u></h2>
             {props.campuses.map(campus => (
                     <div id="all-card" key={campus.id}>{campus.name}

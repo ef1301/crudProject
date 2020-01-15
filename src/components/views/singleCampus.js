@@ -9,8 +9,7 @@ class SingleCampus extends Component {
         super(props);
     }
 
-    componentDidMount()
-    {
+    componentDidMount() {
 	this.props.fetchCampus()
     }
 

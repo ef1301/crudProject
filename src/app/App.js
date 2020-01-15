@@ -46,12 +46,14 @@ class App extends Component{
 	const AllCampusesComponent = () => (<AllCampuses/>);
 	const AllStudentsComponent = () => (<AllStudents/>);
 	const singleStudentComponent = () => (<SingleStudent/>);
-	const singleCampusComponent = () => (<SingleCampus/>);
+	//const singleCampusComponent = () => (<SingleCampus/>);
 	const addCampusComponent = () => (<AddCampus/>);
 	const addStudentComponent = () => (<AddStudent />);
 	const editStudentComponent = () => (<EditStudent />);
 	const editCampusComponent = () => (<EditCampus />);
 
+	//WE NEED TO PASS THE OBJECT OF A CAMPUS OR STUDENT TO THE SINGLES PAGE
+	//(ASK BILLY)
 	return (
 		<Router>
 		<Switch>
@@ -60,8 +62,7 @@ class App extends Component{
 		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
 		<Route exact path="/Student/" render={singleStudentComponent}/>
 
-		<Route exact path="/Campus/" render={singleCampusComponent}/>)
-				     
+		<Route exact path="/Campus/" render={<SingleCampus />)
 	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
