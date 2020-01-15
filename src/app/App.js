@@ -60,8 +60,7 @@ class App extends Component{
 		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
 		<Route exact path="/Student/" render={singleStudentComponent}/>
 
-	    this.state.campuses.map( item =>
-				     <Route exact path="/AllCampus/${item.id}" render={singleCampusComponent}/>)
+		<Route exact path="/Campus/" render={singleCampusComponent}/>)
 				     
 	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
