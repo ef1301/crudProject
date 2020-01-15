@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCampusThunk, currentCampusThunk } from '../../store/utilities/campusReducer'
+import { addCampusThunk, currentCampusThunk, editCampusThunk } from '../../store/utilities/campusReducer'
 import { Link } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ class EditCampusForm extends Component {
             name: '',
             imageURL: '',
             address: '',
-            description: ''
+            description: '',
         };
 
     }
@@ -23,6 +23,7 @@ class EditCampusForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.addCampus(this.state);
+    
 
     }
     render() {
@@ -70,7 +71,7 @@ class EditCampusForm extends Component {
 // async -> Promise based, expects a result in the future
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addCampus: (campus) => dispatch(addCampusThunk(campus)),
+        editCampus: (campus) => dispatch(editCampusThunk(campus)),
         fetchSingleCampus: (id) => dispatch(currentCampusThunk(id))
     }
 }

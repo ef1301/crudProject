@@ -6,6 +6,7 @@ const ADD_STUDENT = "ADD_STUDENT";
 const EDIT_STUDENT = "EDIT_STUDENT";
 const FETCH_CURRENT_CAMPUS = "FETCH_CURRENT_CAMPUS";
 
+
 // THUNK CREATOR;
 // Below we have dummyData
 let arrayOfStudentsFromAPI = [
@@ -129,12 +130,15 @@ function editStudent(student) {
     }
 }
 
+
+
 // REDUCER FUNCTION;
 function allStudentsReducer(state = [], action) {
     switch (action.type) {
         case FETCH_STUDENTS:
             return action.payload;
         case FETCH_CURRENT_STUDENT:
+            console.log("Hello",state);
             return state.filter(student => student.id === action.payload);
         case REMOVE_STUDENT:
             //action.payload is the array of students, only return when you get a match

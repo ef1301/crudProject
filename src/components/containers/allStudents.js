@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AllStudentsView from '../views/allStudentsView';
-import { fetchStudentsThunk, removeStudentThunk } from '../../thunks';
+import { fetchStudentsThunk, removeStudentThunk, currentStudentThunk } from '../../thunks';
 
 class AllStudents extends Component {
     componentDidMount() {
@@ -34,7 +34,7 @@ class AllStudents extends Component {
 		    <div className="add-card">
 		    <Link to="/AddStudent">Add Student</Link>
 		    </div>
-		    <AllStudentsView allStudents={this.props.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
+		    <AllStudentsView fetchCurrentStudent = {this.props.fetchCurrentStudent} allStudents={this.props.allStudents} handleRemoveStudent={this.handleRemoveStudent}/>
 		    </div>
 	    );
 	}
@@ -74,7 +74,8 @@ function mapState(state) {
 function mapDispatch(dispatch) {
     return {
 	fetchStudents: () => dispatch(fetchStudentsThunk()),
-	removeStudent: (id) => dispatch(removeStudentThunk(id))
+	removeStudent: (id) => dispatch(removeStudentThunk(id)),
+	fetchCurrentStudent: (id) => dispatch(currentStudentThunk(id))
     }
 }
 

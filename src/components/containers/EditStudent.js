@@ -20,7 +20,7 @@ class EditStudent extends Component {
         }
     }
     componentDidMount() {
-        this.props.fetchStudents();
+        console.log("hello", this.props);
         this.props.fetchCurrentStudent(this.props.student);
 
         const { id, name, email, imageUrl, gpa } = this.props.student;
@@ -49,7 +49,7 @@ class EditStudent extends Component {
         }
 
         this.props.editStudent(newStudent);
-        this.props.getCurrentStudent(newStudent);
+        this.props.fetchCurrentStudent(newStudent);
         console.log(newStudent);
     }
 
