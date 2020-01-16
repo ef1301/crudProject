@@ -11,9 +11,8 @@ const FETCH_CURRENT_CAMPUS = "FETCH_CURRENT_CAMPUS";
 // Below we have dummyData
 let arrayOfStudentsFromAPI = [
     {
-        "id": '4',
+        "id": 4,
         "name": "Jerry",
-        "lastName": "Jingle",
         "email": "jerryjingle@bells.com",
         "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
         "gpa": null,
@@ -22,9 +21,8 @@ let arrayOfStudentsFromAPI = [
         "campusId": 3
     },
     {
-        "id": '6',
+        "id": 6,
         "name": "Barry",
-        "lastName": "Huang",
         "email": "someemailgoeshere@yahoo.com",
         "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
         "gpa": null,
@@ -33,9 +31,8 @@ let arrayOfStudentsFromAPI = [
         "campusId": 1
     },
     {
-        "id": '1',
+        "id": 1,
         "name": "justin",
-        "lastName": "mintzer",
         "email": "mintzer.justin@gmail.com",
         "imageUrl": "https://i.imgur.com/N9Koe2G.jpg",
         "gpa": 4,
@@ -44,9 +41,8 @@ let arrayOfStudentsFromAPI = [
         "campusId": 1
     },
     {
-        "id": '24',
+        "id": 24,
         "name": "first",
-        "lastName": "LAST",
         "email": "email@email.com",
         "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
         "gpa": null,
@@ -55,9 +51,8 @@ let arrayOfStudentsFromAPI = [
         "campusId": null
     },
     {
-        "id": '2',
+        "id": 2,
         "name": "bob",
-        "lastName": "jones",
         "email": "bobbyboy1234@yahoo.com",
         "imageUrl": "https://i.imgur.com/GuAB8OE.jpg",
         "gpa": 3.7,
@@ -83,13 +78,13 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
-export const currentStudentThunk = (id) => (dispatch) => {
-    let resolvedActionObject = fetchCurrentStudent(id);
+export const currentStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = fetchCurrentStudent(student);
     dispatch(resolvedActionObject);
 }
 
 export const editStudentThunk = (student) => (dispatch) => {
-    let resolvedActionObject = currentStudentThunk(student);
+    let resolvedActionObject = editStudent(student);
     dispatch(editStudent(student));
 }
 
@@ -98,28 +93,28 @@ export const editStudentThunk = (student) => (dispatch) => {
 function fetchStudents(students) {
     return {
         type: FETCH_STUDENTS,
-        payload: students
+        students
     }
 }
 
 function fetchCurrentStudent(id) {
   return {
     type: FETCH_CURRENT_STUDENT,
-    payload: id
+    id
   }
 }
 
 function removeStudent(id) {
     return {
         type: REMOVE_STUDENT,
-        payload: id
+        id
     }
 }
 
 function addStudent(student) {
     return {
         type: ADD_STUDENT,
-        payload: student
+        student
     }
 }
 
@@ -136,18 +131,16 @@ function editStudent(student) {
 function allStudentsReducer(state = [], action) {
     switch (action.type) {
         case FETCH_STUDENTS:
-            return action.payload;
+            return action.students;
         case FETCH_CURRENT_STUDENT:
-            console.log("Hello",state);
-            return state.filter(student => student.id === action.payload);
+            return state.filter(student => student.id === action.id);
         case REMOVE_STUDENT:
-            //action.payload is the array of students, only return when you get a match
-            return state.filter(student => student.id !== action.payload);
+            return state.filter(student => student.id !== action.id);
         case ADD_STUDENT:
-            arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload]
-            return [...state, action.payload]
+            arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.student]
+            return [...state, action.student]
         case EDIT_STUDENT:
-            return action.payload;    
+            return action.student;    
         default:
             return state;
     }

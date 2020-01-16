@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk, currentStudentThunk  } from '../../thunks';
-//import { getSingleStudent } from '../utilities/reducers/studentReducer'
-
+import { currentStudentThunk  } from '../../thunks';
 
 class SingleStudent extends Component {
     componentDidMount() 
     {
-        this.props.fetchStudent()
+        this.props.fetchCurrentStudent(Number(this.props.match.params.studentId));
+        console.log("mount",Number(this.props.match.params.studentId));
     }
+    
     render() {
-        const chosenStudent = this.props.students.selectedStudent
-        const chosenCampusId = Number(chosenStudent.campusId)
-        const chosenCampus = this.props.campuses.campuses.filter(campus => campus.id === chosenCampusId)
+        console.log(this.props);
+
         return (
 		<div>
 		
@@ -24,20 +23,19 @@ class SingleStudent extends Component {
 		<div className="navbar">
 		<Link to="/">Home</Link>
 		<Link to="/AllCampuses">Campuses</Link>
-		<Link to="/Student">Student</Link>
-		<Link to="/Campus">Campus</Link>
+		<Link to="/AllStudents">Students</Link>
 		</div>
+		</div>	
 		</div>
-		
-		</div>
-                <h2>{chosenStudent.firstName} {chosenStudent.lastName}</h2>
-                <ul>
-                    <li>Campus: {chosenCampus.map(elem => elem.name)}</li>
-                    <li>Email: {chosenStudent.email}</li>
-                    <li>GPA: {chosenStudent.gpa}</li>
-                    <img src={chosenStudent.imageUrl} />
-                </ul>
-            </div>
+
+	    {(this.props.student !== undefined) ? 
+             <div>
+             <h2>{this.props.student.name}</h2>
+             <img src={this.props.student.imageURL} alt="student"/>
+             </div> : <div>hello</div> } 
+
+	    
+	    </div>
         )
     }
 }
@@ -53,26 +51,16 @@ With React Redux, your components never access the store directly - connect does
 
 */
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => { 
     return {
-        campuses: state.campuses,
-        students: state.students,
-        selectedStudent: state.selectedStudent,
-        selectedCampus: state.selectedCampus
-    }
+        student: state.allStudents
+    };
 }
-const mapDispatchToProps = (dispatch, ownProps) => 
+const mapDispatchToProps = (dispatch) => 
 {
     return {
-        fetchStudent: () => dispatch(currentStudentThunk(ownProps.match.params.id))
+        fetchCurrentStudent: (id) => dispatch(currentStudentThunk(id))
     }
 }
-
-/*
-    As the second argument passed in to connect, mapDispatchToProps is used for
-    dispatching actions to the store. dispatch is a function of the Redux store.
-    You call store.dispatch to dispatch an action. This is the only way to trigger
-    a state change.
-*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleStudent);
