@@ -15,7 +15,7 @@ function AllStudentsView(props) {
                 <Link to={`/AllStudents/${student.id}`}>{student.name}</Link>
                <u>GPA: </u>
             {student.gpa} <br />
-            <img src={student.imageURL} alt={student.name} /> <br />
+                <img class="single-student img" src={student.imageURL} alt={student.name} /> <br />
             <div className="add">
               <div onClick={() => props.fetchCurrentStudent(student.id)}><Link to="/EditStudent">Edit Student</Link></div>
               <button onClick={() => props.handleRemoveStudent(student.id)}>
