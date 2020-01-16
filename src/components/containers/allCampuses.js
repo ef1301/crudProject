@@ -24,7 +24,7 @@ class AllCampuses extends Component {
     }
 
   display() {
-    console.log(this.props);
+    //console.log(this.props);
     if (this.props.campuses.length == 0) {
       return (
         <div className='container'>
@@ -72,7 +72,7 @@ class AllCampuses extends Component {
 }
 
 function mapState(state) {
-  console.log(state);
+  //console.log(state);
   return {
     campuses: state.campuses
   }

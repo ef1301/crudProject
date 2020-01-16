@@ -9,8 +9,8 @@ import AddCampus from '../components/containers/AddCampus';
 import AllCampuses from '../components/containers/allCampuses';
 import AllStudents from '../components/containers/allStudents';
 import AddStudent from '../components/containers/AddStudent';
-import EditStudent from '../components/containers/EditStudent';
-import EditCampus from '../components/containers/EditCampus';
+import EditStudentForm from '../components/containers/EditStudent';
+import EditCampusForm from '../components/containers/EditCampus';
 
 import SingleStudent from '../components/views/singleStudent';
 import SingleCampus from '../components/views/singleCampus';
@@ -39,39 +39,40 @@ class App extends Component{
 	// 	address: '',
 	// 	description: ''
 	//     }
-	}
+    }
     
     
     render() {
-	const HomeComponent = () => (<Home/>);
-	const AllCampusesComponent = () => (<AllCampuses/>);
-	const AllStudentsComponent = () => (<AllStudents/>);
-	//const singleStudentComponent = () => (<SingleStudent/>);
-	//const singleCampusComponent = () => (<SingleCampus/>);
+	const homeComponent = () => (<Home/>);
+	const allCampusesComponent = () => (<AllCampuses/>);
+	const allStudentsComponent = () => (<AllStudents/>);
 	const addCampusComponent = () => (<AddCampus/>);
 	const addStudentComponent = () => (<AddStudent />);
-	const editStudentComponent = () => (<EditStudent />);
-	const editCampusComponent = () => (<EditCampus />);
+	const editStudentComponent = () => (<EditStudentForm />);
+	//const editCampusComponent = () => (<EditCampusForm />);
 
 	//WE NEED TO PASS THE OBJECT OF A CAMPUS OR STUDENT TO THE SINGLES PAGE
 	//(ASK BILLY)
 	return (
 		<Router>
 		<Switch>
-		<Route exact path="/" render={HomeComponent}/>
-		<Route exact path="/AllCampuses" render={AllCampusesComponent}/>
-		<Route exact path="/AllStudents" render={AllStudentsComponent}/>
+		<Route exact path="/" render={homeComponent}/>
+		<Route exact path="/AllCampuses" render={allCampusesComponent}/>
+		<Route exact path="/AllStudents" render={allStudentsComponent}/>
 
 	    {this.props.campuses.map( (campus) => {
 		return <Route exact path={`/AllCampuses/:campusId`} render={ (props) => <SingleCampus {...props} campus={campus.id} />}/>})}
 
 	    {this.props.allStudents.map( (student) => {
-	    return <Route exact path={`/AllStudents/:studentId`} render={ (props) => <SingleStudent {...props} student={student.id} />} />})}
+		return <Route exact path={`/AllStudents/:studentId`} render={ (props) => <SingleStudent {...props} student={student.id} />} />})}
 	    
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
+
+	    	    {this.props.campuses.map( (campus) => {
+		return <Route exact path={`/AllCampuses/EditCampus/:campusId`} render={ (props) => <EditCampusForm {...props} campus={campus.id} />}/>})}
 		<Route exact path="/EditStudent/" render={editStudentComponent} />
-		<Route exact path="/EditCampus/" render={editCampusComponent} />
+		{/*<Route exact path="/EditCampus/" render={editCampusComponent} />*/}
 		</Switch>
 		</Router>
 	);

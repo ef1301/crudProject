@@ -5,15 +5,19 @@ import { Link } from "react-router-dom";
 
 
 class EditCampusForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+	    id: Number(this.props.match.params.campusId),
             name: '',
-            imageURL: '',
+            imageUrl: '',
             address: '',
             description: '',
         };
-
+    }
+    componentDidMount() {
+	console.log('id', this.state);
+	this.props.fetchCurrentCampus(Number(this.props.match.params.campusId));
     }
 
     handleChange = (event) => {
@@ -21,10 +25,10 @@ class EditCampusForm extends Component {
     }
 
     handleSubmit = (event) => {
+	console.log(this.props.campus.id);
+	console.log(this.state);
         event.preventDefault();
-        this.props.addCampus(this.state);
-    
-
+        this.props.editCampus(this.state);
     }
     render() {
         return (
@@ -46,14 +50,12 @@ class EditCampusForm extends Component {
                 <div className="container">
                     <form onSubmit={this.handleSubmit}>
                         <h2> Edit Campus</h2>
-                        <label htmlFor="id">ID: </label>
-                        <input name="id" required type="number" placeholder="Enter Campus ID." onChange={this.handleChange}></input><br />
 
                         <label htmlFor="name">Name: </label>
                         <input name="name" required type="text" placeholder="Enter Campus Name." onChange={this.handleChange}></input><br />
 
-                        <label htmlFor="imageURL">ImageURL:</label>
-                        <input name="imageURL" type="text" placeholder="Enter Campus ImageURL." onChange={this.handleChange}></input><br />
+                        <label htmlFor="imageUrl">ImageURL:</label>
+                        <input name="imageUrl" type="text" placeholder="Enter Campus ImageURL." onChange={this.handleChange}></input><br />
 
                         <label htmlFor="address">Address:</label>
                         <input name="address" required type="text" placeholder="Enter Campus Address." onChange={this.handleChange}></input><br />
@@ -68,13 +70,20 @@ class EditCampusForm extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+	campus: state.campuses[0]
+  };
+};
+
 // async -> Promise based, expects a result in the future
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        editCampus: (campus) => dispatch(editCampusThunk(campus)),
-        fetchSingleCampus: (id) => dispatch(currentCampusThunk(id))
+	fetchCurrentCampus: (id) => dispatch(currentCampusThunk(id)),
+        editCampus: (campus) => dispatch(editCampusThunk(campus))
     }
 }
 
 
-export default connect(null, mapDispatchToProps)(EditCampusForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditCampusForm);

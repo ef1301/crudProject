@@ -98,7 +98,17 @@ function allCampusReducer(state = [], action) {
         case REMOVE_CAMPUS:
             return state.filter(campus=> campus.id !== action.id);
         case EDIT_CAMPUS:
-            return action.payload;
+        return state.map( (item) => {
+	    if (item.id === action.campus.id){
+		return {...item,
+			name: action.campus.name,
+			address: action.campus.address,
+			imageUrl: action.campus.imageUrl,
+			description: action.campus.description
+		       }
+	    }
+	    else return item;
+	})
         default:    
             return state
     }

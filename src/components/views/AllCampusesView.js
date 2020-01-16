@@ -10,7 +10,7 @@ function AllCampusesView(props) {
                     <div id="all-card" key={campus.id}>
                 <Link to={`/AllCampuses/${campus.id}`}>{campus.name}</Link>
 		    <button onClick={() => props.handleRemoveCampus(campus.id)}>Delete Campus</button>
-                <Link to="/EditCampus">Edit Campus</Link>
+                    <Link to={`/AllCampuses/EditCampus/${campus.id}`}>Edit Campus</Link>
 		    </div>
 		
             ))}
