@@ -27,12 +27,20 @@ class SingleStudent extends Component {
 		</div>	
 		</div>
 
-	    {(this.props.students !== undefined) ? 
-             <div>
-             <h2>{this.props.students.name}</h2>
-             <img src={this.props.students.imageURL} alt="student"/>
-	     <p>{this.props.students.gpa}</p>
-             </div> : <div>hello</div> } 
+        <img class="single-student img" src={this.props.students.imageURL} alt="student" />
+            {(this.props.students !== undefined) ? 
+        <div class="student_header_container">
+                    <h3>Student:{this.props.students.name}</h3>
+        
+            <p id="gpa">GPA:  {this.props.students.gpa}</p>
+            </div> : <div>hello</div>}
+
+        <div id="fixed-button">        
+            <button>Edit</button>
+            <button>Delete</button>
+        </div>
+
+ 
 
 	    
 	    </div>

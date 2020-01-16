@@ -83,7 +83,7 @@ form {
 
 .container a:hover{
 }
-
+/* container -> all student/campus cards */
 .all-card-holder {
     margin-left: 2%;
     flex-direction: row;
@@ -106,6 +106,8 @@ form {
     margin-right: 2%;
     margin-bottom: 1%;
 }
+
+/* small cards */
 .add-card a {
     margin-top: 1%;
     margin-bottom: 1%;
@@ -126,6 +128,44 @@ form {
     font-size: 1.05em;
     padding: 1%;
 }
+
+.student_header_container
+{
+ text-align: center;
+ margin-left: 70%;
+ font-family: Arial, Helvetica, sans-serif;
+ border: medium solid gold;
+}
+
+.single-student img
+{
+  margin-left: 10%;
+  margin-top: 40%;
+  display: block;
+  max-width:3%;
+  max-height: 3%;
+  
+}
+
+#gpa
+{
+    text-align: center;
+}
+
+#fixed-button
+{
+    position: fixed;
+    right: 50;
+    bottom: 0;
+    width: 100px;
+    height: auto;
+    border: 0px solid #d6d6d6;
+    z-index: 99;
+    padding: 0;
+    text-align: center;
+    background: yellow;
+}
+
 
 #all-card {
     display: inline-block;
