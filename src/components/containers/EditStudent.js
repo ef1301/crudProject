@@ -21,14 +21,18 @@ class EditStudent extends Component {
     }
     componentDidMount() {
         console.log("hello", this.props);
-        this.props.fetchCurrentStudent(this.props.student);
+        // this.props.fetchCurrentStudent(this.props.student);
 
-        const { id, name, email, imageUrl, gpa } = this.props.student;
-        this.setState(
-            {
-                id, name, email, imageUrl, gpa
-            }
-        )
+        // const { id, name, email, imageUrl, gpa } = this.props.student;
+        // this.setState(
+        //     {
+        //         id, 
+        //         name, 
+        //         email, 
+        //         imageUrl, 
+        //         gpa
+        //     }
+        //)
     }
 
     handleChange = (event) => {
@@ -76,7 +80,7 @@ class EditStudent extends Component {
 
                 <div className="container">
                     <form onSubmit={this.handleEdit}>
-                        <h2>Add Student</h2>
+                        <h2>Edit Student</h2>
 
                         <label htmlFor="id">ID: </label>
                         <input required name="id" type="number" placeholder="Enter Student ID." onChange={this.handleChange}></input><br />
