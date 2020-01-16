@@ -21,24 +21,6 @@ import Home from '../components/views/Home';
 class App extends Component{
     constructor() {
 	super();
-
-	// this.state = {
-	//     allStudents: [],
-	//     allCampuses: [],
-	//     singleStudent: {
-	// 	firstName: '',
-	// 	lastName: '',
-	// 	email:'',
-	// 	imageURL: '',
-	// 	gpa: 0
-	//     },
-	//     singleCampus: {
-	// 	name: '',
-	// 	numStudents: 0,
-	// 	imageURL: '',
-	// 	address: '',
-	// 	description: ''
-	//     }
     }
     
     
@@ -48,11 +30,7 @@ class App extends Component{
 	const allStudentsComponent = () => (<AllStudents/>);
 	const addCampusComponent = () => (<AddCampus/>);
 	const addStudentComponent = () => (<AddStudent />);
-	const editStudentComponent = () => (<EditStudentForm />);
-	//const editCampusComponent = () => (<EditCampusForm />);
-
-	//WE NEED TO PASS THE OBJECT OF A CAMPUS OR STUDENT TO THE SINGLES PAGE
-	//(ASK BILLY)
+	
 	return (
 		<Router>
 		<Switch>
@@ -69,10 +47,11 @@ class App extends Component{
 		<Route exact path="/AddCampus/" render={addCampusComponent} />
 		<Route exact path="/AddStudent/" render={addStudentComponent} />
 
-	    	    {this.props.campuses.map( (campus) => {
-		return <Route exact path={`/AllCampuses/EditCampus/:campusId`} render={ (props) => <EditCampusForm {...props} campus={campus.id} />}/>})}
-		<Route exact path="/EditStudent/" render={editStudentComponent} />
-		{/*<Route exact path="/EditCampus/" render={editCampusComponent} />*/}
+	    {this.props.campuses.map( (campus) => {
+		return <Route exact path={`/AllCampuses/EditCampus/:campusId`} render={ (props) => <EditCampusForm {...props} />}/>})}
+
+	    {this.props.allStudents.map( (student) => {
+		return <Route exact path={`/AllStudents/EditStudent/:studentId`} render={ (props) => <EditStudentForm {...props}/>} />})}
 		</Switch>
 		</Router>
 	);
@@ -86,8 +65,6 @@ function mapState(state) {
     };
 }
 
-//anything in this function will be accessible on the component's props object;
-//in other words, you can now call this.props.incrementCoutner;
 function mapDispatch(dispatch) {
     return {
 	
