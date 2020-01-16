@@ -7,14 +7,13 @@ class SingleStudent extends Component {
     componentDidMount() 
     {
         this.props.fetchCurrentStudent(Number(this.props.match.params.studentId));
-        console.log("mount",Number(this.props.match.params.studentId));
+        console.log("mount",this.props);
     }
     
     render() {
-        console.log(this.props);
+        console.log(this.props.students);
 
-        return (
-		<div>
+        return <div>
 		
 		<div className="home-container">
 	    	<div className="header">
@@ -28,15 +27,16 @@ class SingleStudent extends Component {
 		</div>	
 		</div>
 
-	    {(this.props.student !== undefined) ? 
+	    {(this.props.students !== undefined) ? 
              <div>
-             <h2>{this.props.student.name}</h2>
-             <img src={this.props.student.imageURL} alt="student"/>
+             <h2>{this.props.students.name}</h2>
+             <img src={this.props.students.imageURL} alt="student"/>
+	     <p>{this.props.students.gpa}</p>
              </div> : <div>hello</div> } 
 
 	    
 	    </div>
-        )
+        
     }
 }
 
@@ -53,7 +53,7 @@ With React Redux, your components never access the store directly - connect does
 
 const mapStateToProps = state => { 
     return {
-        student: state.allStudents
+        students: state.students[0]
     };
 }
 const mapDispatchToProps = (dispatch) => 

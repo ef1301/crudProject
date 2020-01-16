@@ -1,10 +1,10 @@
 //Action Types to be dispatched later
-const FETCH_STUDENTS = "FETCH_STUDENTS";
-const FETCH_CURRENT_STUDENT = "FETCH_CURRENT_STUDENT";
-const REMOVE_STUDENT = "REMOVE_STUDENT";
-const ADD_STUDENT = "ADD_STUDENT";
 const EDIT_STUDENT = "EDIT_STUDENT";
-const FETCH_CURRENT_CAMPUS = "FETCH_CURRENT_CAMPUS";
+const FETCH_CURRENT_STUDENT = "FETCH_CURRENT_STUDENT";
+const FETCH_STUDENTS = "FETCH_STUDENTS";
+const ADD_STUDENT = "ADD_STUDENT";
+const REMOVE_STUDENT = "REMOVE_STUDENT";
+
 
 
 // THUNK CREATOR;
@@ -63,7 +63,6 @@ let arrayOfStudentsFromAPI = [
 ]
 
 export let fetchStudentsThunk = () => (dispatch) => {
-    
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
 
 }
@@ -98,10 +97,10 @@ function fetchStudents(students) {
 }
 
 function fetchCurrentStudent(id) {
-  return {
-    type: FETCH_CURRENT_STUDENT,
-    id
-  }
+    return {
+	type: FETCH_CURRENT_STUDENT,
+	id
+    }
 }
 
 function removeStudent(id) {

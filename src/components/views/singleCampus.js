@@ -51,7 +51,7 @@ class SingleCampus extends Component {
 
 const mapStateToProps = state => {
   return {
-    campus: state.campuses[0],
+    campus: state.campuses[0]
   };
 };
 const mapDispatchToProps = (dispatch) => {
