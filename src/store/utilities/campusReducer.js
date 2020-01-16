@@ -11,7 +11,7 @@ const arrayOfCampusesFromAPI = [
         "name": "Hunter College",
         "numStudents": 2,
         "students": [],
-        "imageUrl": "http://i.imgur.com/AItCxSs.jpg",
+        "imageUrl": "http://www.hunter.cuny.edu/research/repository/images/hunter_campus1.jpg",
         "address": "2018-12-06T19:58:21.314Z",
         "description": "2018-12-06T19:58:21.314Z"
     },

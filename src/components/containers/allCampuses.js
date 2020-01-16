@@ -62,8 +62,6 @@ class AllCampuses extends Component {
               <Link to="/">Home</Link>
               <Link to="/AllCampuses">Campuses</Link>
               <Link to="/AllStudents">Students</Link>
-              <Link to="/Student">Student</Link>
-              <Link to="/Campus">Campus</Link>
             </div>
           </div>
         </div>

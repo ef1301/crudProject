@@ -42,7 +42,7 @@ class SingleCampus extends Component {
             </div> : <div>hello</div> } 
             <div>
               <h2>Campuses</h2>
-              <p>There are </p>
+            <p></p>
             </div>
           </div>
         

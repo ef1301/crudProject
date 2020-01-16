@@ -78,8 +78,8 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
-export const currentStudentThunk = (student) => (dispatch) => {
-    let resolvedActionObject = fetchCurrentStudent(student);
+export const currentStudentThunk = (id) => (dispatch) => {
+    let resolvedActionObject = fetchCurrentStudent(id);
     dispatch(resolvedActionObject);
 }
 
