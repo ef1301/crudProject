@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCampusThunk, editCampusThunk } from '../../store/utilities/campusReducer'
+import { editCampusThunk } from '../../store/utilities/campusReducer'
 import { Link } from "react-router-dom";
 
 
@@ -56,8 +56,6 @@ class EditCampusForm extends Component {
                 <Link to="/">Home</Link>
                 <Link to="/AllCampuses">Campuses</Link>
                 <Link to="/AllStudents">Students</Link>
-                <Link to="/Student">Student</Link>
-                <Link to="/Campus">Campus</Link>
                 </div>
                 </div>
                 </div>

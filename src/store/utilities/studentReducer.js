@@ -5,10 +5,6 @@ const FETCH_STUDENTS = "FETCH_STUDENTS";
 const ADD_STUDENT = "ADD_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 
-
-
-// THUNK CREATOR;
-// Below we have dummyData
 let arrayOfStudentsFromAPI = [
     {
         "id": 4,
@@ -84,7 +80,7 @@ export const currentStudentThunk = (id) => (dispatch) => {
 
 export const editStudentThunk = (student) => (dispatch) => {
     let resolvedActionObject = editStudent(student);
-    dispatch(editStudent(student));
+    dispatch(resolvedActionObject);
 }
 
 
@@ -129,19 +125,23 @@ function editStudent(student) {
 // REDUCER FUNCTION;
 function allStudentsReducer(state = [], action) {
     switch (action.type) {
-        case FETCH_STUDENTS:
-            return action.students;
-        case FETCH_CURRENT_STUDENT:
-            return state.filter(student => student.id === action.id);
-        case REMOVE_STUDENT:
-            return state.filter(student => student.id !== action.id);
-        case ADD_STUDENT:
-            arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.student]
-            return [...state, action.student]
-        case EDIT_STUDENT:
-            return action.student;    
-        default:
-            return state;
+    case FETCH_STUDENTS:
+        return action.students;
+    case FETCH_CURRENT_STUDENT:
+        return state.filter(student => student.id === action.id);
+    case REMOVE_STUDENT:
+        return state.filter(student => student.id !== action.id);
+    case ADD_STUDENT:
+        arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.student]
+        return [...state, action.student]
+    case EDIT_STUDENT:
+	return state.map( (item) => {
+	    if (item.id === action.student.id)
+		return Object.assign({}, item, action.student)
+	    else return item;
+	})
+    default:
+        return state;
     }
 }
 

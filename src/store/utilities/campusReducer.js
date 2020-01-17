@@ -99,14 +99,8 @@ function allCampusReducer(state = [], action) {
             return state.filter(campus=> campus.id !== action.id);
         case EDIT_CAMPUS:
         return state.map( (item) => {
-	    if (item.id === action.campus.id){
-		return {...item,
-			name: action.campus.name,
-			address: action.campus.address,
-			imageUrl: action.campus.imageUrl,
-			description: action.campus.description
-		       }
-	    }
+	    if (item.id === action.campus.id)
+		return Object.assign({}, item, action.campus);
 	    else return item;
 	})
         default:    

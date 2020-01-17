@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchStudentsThunk, currentStudentThunk, editStudentThunk } from '../../store/utilities/studentReducer'
+import { editStudentThunk } from '../../store/utilities/studentReducer'
 import { Link } from "react-router-dom";
 
-class EditStudent extends Component {
+class EditStudentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,12 +15,12 @@ class EditStudent extends Component {
         };
     }
     componentDidMount() {
-        console.log("hello", this.props);
 	this.fetchCurrentStudent();
     }
 
     fetchCurrentStudent = () => {
-	for(let student of this.props.allStudents){
+	console.log(this.props);
+	/*for(let student of this.props.allStudents){
 	    if(student.id === this.state.id) {
 		this.setState({name: student.name,
 			       email: student.email,
@@ -29,12 +29,14 @@ class EditStudent extends Component {
 			      });
 		break;
 	    }
-	}
-	
+	}*/
+
+	const student = this.props.allStudents.find(s => s.id === this.state.id);
+	this.setState(student);
     }
 
     handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit = (event) => {
@@ -97,12 +99,11 @@ const mapState = (state) => {
 // The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
 const mapDispatch = (dispatch) => {
     return {
-        fetchStudents: () => dispatch(fetchStudentsThunk()),
         editStudent: (student) => dispatch(editStudentThunk(student))
     }
 }
 
-export default connect(mapState, mapDispatch)(EditStudent);
+export default connect(mapState, mapDispatch)(EditStudentForm);
 
 
 
